@@ -1,0 +1,12 @@
+.page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+}
+.page-container h2 {
+    font-size: 5rem;
+    color: var(--main-color);
+}
