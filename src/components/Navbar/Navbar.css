@@ -18,8 +18,11 @@
     letter-spacing: .4rem;
     color: var(--main-color);
     text-shadow: 4px 4px 4px rgb(0, 0, 0);
+  
 }
-
+.logo-link {
+    text-decoration: none;
+}
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
@@ -55,7 +58,7 @@
 
 .links:hover {
     background: #777;
-
+    color: var(--white-smoke);
 }
 
 .hamb-icon {

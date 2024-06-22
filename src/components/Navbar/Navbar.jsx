@@ -12,9 +12,7 @@ function Navbar() {
     return (
         <div className="nav">
             <div className="nav-wrapper">
-                <h2 className="logo">
-                    GitArt
-                </h2>
+                <Link className='logo-link' to='/'><h2 className="logo">GitArt</h2></Link>
 
                 <ul className={`menu ${isOpen ? 'open' : ''}`}>
                     <li><Link className='links' to="/" onClick={() => setIsOpen(false)}>Kezdőlap</Link></li>

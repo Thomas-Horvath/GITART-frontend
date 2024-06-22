@@ -5,9 +5,10 @@ export default function Home(props) {
     return (
         <>
             <div className="home-page-container">
-            <section className="banner"></section>
-                <h2>{props.text}</h2>
-                <a href="https://facebook.com" target='_blank' rel="noreferrer" >valami</a>
+                <section className="banner">
+                    <h1 className='name'>GitArt</h1>
+                    <h2 className='main-title'>Próbaterem és Stúdió</h2>
+                </section>
             </div>
         </>
 
