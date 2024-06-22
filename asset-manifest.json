@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/rehearsal_room/static/css/main.ec24e3a4.css",
-    "main.js": "/rehearsal_room/static/js/main.d9c86d71.js",
+    "main.css": "/rehearsal_room/static/css/main.2f296cf2.css",
+    "main.js": "/rehearsal_room/static/js/main.bb433ff6.js",
     "static/media/banner.jpg": "/rehearsal_room/static/media/banner.28d2d702571a8ef7e413.jpg",
     "static/media/PostNoBillsJaffna-ExtraBold.ttf": "/rehearsal_room/static/media/PostNoBillsJaffna-ExtraBold.2240aa28196a8ddae215.ttf",
     "static/media/Raleway-Regular.ttf": "/rehearsal_room/static/media/Raleway-Regular.d9219d8a361ac3530c7e.ttf",
     "index.html": "/rehearsal_room/index.html",
-    "main.ec24e3a4.css.map": "/rehearsal_room/static/css/main.ec24e3a4.css.map",
-    "main.d9c86d71.js.map": "/rehearsal_room/static/js/main.d9c86d71.js.map"
+    "main.2f296cf2.css.map": "/rehearsal_room/static/css/main.2f296cf2.css.map",
+    "main.bb433ff6.js.map": "/rehearsal_room/static/js/main.bb433ff6.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec24e3a4.css",
-    "static/js/main.d9c86d71.js"
+    "static/css/main.2f296cf2.css",
+    "static/js/main.bb433ff6.js"
   ]
 }
