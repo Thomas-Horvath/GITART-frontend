@@ -20,7 +20,7 @@ function Navbar() {
                     <li><Link className='links' to="/rooms" onClick={() => setIsOpen(false)}>Próbatermek</Link></li>
                     <li><Link className='links' to="/booking" onClick={() => setIsOpen(false)}>Foglalás</Link></li>
                     <li><Link className='links' to="/contact" onClick={() => setIsOpen(false)}>Kapcsolat</Link></li>
-                    <li><Link className='links' to="/signin" ><i class="fa-solid fa-user"></i></Link></li>
+                    <li><Link className='links' to="/signin" ><i class="fa-solid fa-user icon"></i></Link></li>
                 </ul>
 
             
