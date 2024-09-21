@@ -3,6 +3,7 @@
   --main-color-70: #cbaa5c70;
   --white-smoke: #eee;
   --bg: #29292a;
+  --text-color: #747474;
 }
 
 @font-face {
@@ -27,4 +28,19 @@ body {
   background: var(--bg);
   font-family: 'raleway';
   min-width: 350px;
+  padding-top: 4rem;
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.w1400 {
+  max-width: 1400px;
+  margin: auto;
 }

@@ -8,11 +8,13 @@ import Rooms from './pages/Rooms.jsx';
 import Booking from './pages/Booking.jsx';
 import Signin from './pages/Signin.jsx';
 import Contact from './pages/Contact';
+import ScrollTop from './components/ScrollToTop.jsx';
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <ScrollTop />
         <Navbar />
         <Routes>
           <Route path='/' element={<Home text="Home" />} />

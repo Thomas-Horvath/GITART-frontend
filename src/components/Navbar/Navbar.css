@@ -1,24 +1,22 @@
 .nav {
-    height: 5rem;
-    background: #aaa;
+    height: 4rem;
     position: fixed;
-
-
     top: 0;
     width: 100%;
     background: var(--bg);
     border-bottom: 2px solid var(--main-color);
+    z-index: 100;
+
 
 }
 
 .logo {
     font-family: "jaffna";
     font-size: 3.2rem;
-    padding-top: .5rem;
+    padding-top: .3rem;
     letter-spacing: .4rem;
     color: var(--main-color);
     text-shadow: 4px 4px 4px rgb(0, 0, 0);
-
 }
 
 .logo-link {
@@ -33,6 +31,8 @@
     height: 100%;
     margin: 0 auto;
     padding: 0 1rem;
+    position: sticky;
+    bottom: 0;
 }
 
 
@@ -49,10 +49,10 @@
 }
 
 .links {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-decoration: none;
     color: var(--white-smoke);
-    letter-spacing: .12rem;
+    letter-spacing: .1rem;
     padding: 0 1rem;
     display: flex;
     align-items: center;
@@ -83,7 +83,7 @@
     }
 
     .logo {
-        font-size: 5rem
+        font-size: 4rem
     }
 
     ;

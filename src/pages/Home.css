@@ -2,19 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 100%;
     margin: auto;
-    min-height: 100vh;
-    padding-bottom: 20rem;
+
+
+
 }
 
 
 
 .banner {
     width: 100%;
-    height: 37rem;
-    background: linear-gradient(rgba(21, 32, 46, 0.7), rgba(21, 32,46, 0.4)), url("../assets/img/banner.jpg");
+    height: 32rem;
+    background: linear-gradient(rgba(21, 32, 46, 0.7), rgba(21, 32, 46, 0.4)), url("../assets/img/banner.jpg");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,10 +26,14 @@
     font-family: "jaffna";
     color: var(--main-color);
     text-align: center;
+    position: fixed;
+    z-index: -1;
 }
 
+
+
 .name {
-    font-size:6rem;
+    font-size: 6rem;
     text-shadow: 4px 4px 6px rgb(0, 0, 0);
     letter-spacing: .4rem;
 }
@@ -42,11 +46,23 @@
 
 }
 
-@media (min-width: 576px) { 
+.sec-2 {
+    height: calc(210vh + 2rem);
+    width: 100%;
+    z-index: 4;
+    margin-top: 30rem;
+    background: var(--bg);
+}
+
+.sec-2 .content {
+    padding: 2rem;
+}
+
+@media (min-width: 576px) {
     .name {
-        font-size:7rem;
+        font-size: 7rem;
     }
-    
+
     .main-title {
         font-size: 4rem;
         line-height: 4rem;
@@ -54,21 +70,20 @@
 }
 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .name {
-        font-size:8rem;
+        font-size: 8rem;
     }
-    
+
     .main-title {
         font-size: 6rem;
         line-height: 6rem;
     }
- }
+}
 
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
     .name {
-        font-size:9rem;
+        font-size: 9rem;
     }
- }
-
+}
