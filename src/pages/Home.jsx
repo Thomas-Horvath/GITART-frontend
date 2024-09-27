@@ -1,5 +1,6 @@
-import React from 'react'
-import "./Home.css"
+import React from 'react';
+import Services from '../components/HomePageSections/Services.jsx';
+
 
 export default function Home(props) {
     return (
@@ -8,11 +9,14 @@ export default function Home(props) {
                 <section className="banner">
                     <h1 className='name'>GitArt</h1>
                     <h2 className='main-title'>Próbaterem és Stúdió</h2>
+                   
                 </section>
-                <section className='sec-2'>
-                    <div className="content w1400">
+                <section className='page-background'>
+                    <div className="home-content w1400">
+                    <Services />
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, culpa aspernatur, harum, maiores et itaque quasi eum fugit temporibus esse libero autem aut. Porro et, dolor ex reiciendis assumenda eos.</p>
+                        <h2>HASZNÁLD KI AKCIÓS LEHETŐSÉGEINKET</h2>
+                        <p>Próbatermek már 1.800 Ft-tól</p>
                     </div>
                 </section>
             </div>

@@ -1,0 +1,134 @@
+.services {
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+.heading {
+    padding: 0 .8rem
+};
+    .section-title {
+        position: relative;
+        font-size: 2rem;
+        color: $white-smoke;
+        margin-bottom: 1.5rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 2px;
+            width: 6rem;
+            background-color: $main-color;
+        }
+    }
+    h3 {
+        color: $main-color;
+        margin-bottom: .4rem;
+    }
+
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 2rem;
+
+        .card {
+            flex: 1 1 300px; // Rugalmas méret, minimum 300px
+            // max-width: 100%;
+            padding: 1rem;
+            transition: transform 0.1s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+            padding: 1rem;
+
+            .card-title {
+                color: $white-smoke;
+            }
+
+            .text-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                a {
+                    margin-top: 1rem;
+                    width: fit-content;
+                }
+            }
+        }
+    }
+
+
+    .icon-wrapper {
+        display: inline-block;
+        position: relative;
+        padding: 20px;
+        min-width: 80px;
+        min-height: 80px;
+
+    }
+
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+
+    }
+
+    .icon-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 8px;
+        /* Hézag a kör körül */
+        border: 4px solid #ddd;
+        /* Alap karima szín */
+        border-radius: 50%;
+        transition: border-color 0.3s ease;
+        z-index: 1;
+        /* A karima a háttérben van */
+    }
+
+    .card:hover .icon-wrapper::before {
+        border-color: $main-color;
+        /* A karima színe hover esetén */
+    }
+}
+
+@media (min-width: 576px) {
+    .services {
+
+        .section-title {
+            font-size: 3rem;
+        }
+    }
+
+    .card-container {
+        .card {
+            flex: none;
+            max-width: 400px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .card-container {
+        .card {
+            flex: 1 1 auto;
+            max-width: 100%;
+        }
+    }
+}

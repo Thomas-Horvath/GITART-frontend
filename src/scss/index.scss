@@ -1,0 +1,83 @@
+
+    $main-color: #cbaa5c;
+    $main-color-70: #cbaa5c70;
+    $white-smoke: #eee;
+    $bg: #29292a;
+    $text-color: #747474;
+
+
+@font-face {
+    font-family: "jaffna";
+    src: url('./fonts/PostNoBillsJaffna-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: "raleway";
+    src: url('./fonts/Raleway-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+body {
+    background: $bg;
+    font-family: 'raleway';
+    min-width: 350px;
+    padding-top: 4rem;
+    color: $text-color;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.w1400 {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+
+    h2 {
+
+        font-size: 5rem;
+        color: $main-color;
+    }
+}
+
+.btn {
+    padding: .5rem 2rem;
+    background: $main-color;
+    color: $bg;
+    font-weight: bold;
+    font-size: .8rem;
+    letter-spacing: .1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 4px 4px 10px #000;
+
+    transition: background-color .2s ease-in-out;
+    &:hover {
+        background-color:  darken($main-color, 10%);
+    }
+}
+
+@import './navbar.scss';
+@import './home.scss';
+@import './services.scss';
+@import './footer.scss';
