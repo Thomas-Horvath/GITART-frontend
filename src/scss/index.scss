@@ -1,9 +1,9 @@
-
-    $main-color: #cbaa5c;
-    $main-color-70: #cbaa5c70;
-    $white-smoke: #eee;
-    $bg: #29292a;
-    $text-color: #747474;
+$main-color: #cbaa5c;
+$main-color-70: #cbaa5c70;
+$white-smoke: #eee;
+$bg: #29292a;
+$text-color: #747474;
+$bg-light: #827e7e;
 
 
 @font-face {
@@ -72,12 +72,61 @@ li {
     box-shadow: 4px 4px 10px #000;
 
     transition: background-color .2s ease-in-out;
+
     &:hover {
-        background-color:  darken($main-color, 10%);
+        background-color: darken($main-color, 10%);
     }
+}
+
+
+// közös  stílusok
+.heading {
+    text-align: center;
+    padding: 0 .8rem
+}
+
+
+
+.section-title {
+    text-align: center;
+    position: relative;
+    font-size: 2rem;
+    color: $white-smoke;
+    margin-bottom: 1.5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        width: 6rem;
+        background-color: $main-color;
+    }
+}
+
+h3 {
+    color: $main-color;
+    margin-bottom: .4rem;
+}
+
+@media (min-width: 576px) {
+   
+        .section-title {
+            font-size: 3rem;
+        }
+    
+
+  
 }
 
 @import './navbar.scss';
 @import './home.scss';
 @import './services.scss';
+@import './about.scss';
+@import './references.scss';
+@import './sales.scss';
+@import './prices_section.scss';
+@import './calendar.scss';
 @import './footer.scss';

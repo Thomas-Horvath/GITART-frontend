@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Calendar from '../components/BookingPage/Calendar';
 
 
-export default function Booking({text}) {
+export default function Booking() {
     return (
         <>
             <div className="page-container">
-                <h2>{text}</h2>
+                <div className="calendar-wrapper">
+                    <Calendar />
+                </div>
             </div>
         </>
 
