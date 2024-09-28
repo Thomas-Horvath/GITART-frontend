@@ -1,47 +1,108 @@
 import React, { useState } from 'react';
 
 
+
 const WeeklyCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [bookings, setBookings] = useState([]);
-  
-  const days = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek'];
+  const [bookings, setBookings] = useState({});
+  const [selectedHours, setSelectedHours] = useState([]); // Kijelölt órák tárolása
+  const [bookingName, setBookingName] = useState(''); // Foglaló neve
+
+
+
+  const rooms = ['Terem 1', 'Terem 2', 'Terem 3'];
   const hours = Array.from({ length: 13 }, (_, i) => i + 10); // 10:00 - 22:00
 
-  const handleBook = (day, hour) => {
-    const confirmation = window.confirm(`Foglalni szeretnél ${day} ${hour}:00 órakor?`);
-    if (confirmation) {
-      const bookingTime = `${day} ${hour}:00`;
-      setBookings((prev) => [...prev, bookingTime]);
+
+
+  // console.log(rooms, hours);
+  // Óra kiválasztás logikája
+
+  const handleCellClick = (room, hour) => {
+    const bookingTime = { room, hour }; // Objektum formátumú foglalás
+
+    if (selectedHours.length === 0) {
+      // Első kiválasztott óra
+      setSelectedHours([bookingTime]);
+
+    } else {
+      const lastBooking = selectedHours[selectedHours.length - 1];
+      const lastHour = lastBooking.hour; // Utolsó kiválasztott óra
+      const selectedRoom = lastBooking.room; // Utolsó kiválasztott terem
+
+      // Ellenőrizzük, hogy a terem neve egyezik-e
+      if (room === selectedRoom) {
+        // Ha a következő kattintott óra közvetlenül az előző után van
+        if (hour === lastHour + 1) {
+          setSelectedHours([...selectedHours, bookingTime]);
+        } else if (selectedHours.some(b => b.room === room && b.hour === hour)) {
+          // Ha ugyanarra az órára kattintanak, töröljük a kijelölést
+          setSelectedHours(selectedHours.filter(b => b.room !== room || b.hour !== hour));
+        } else {
+          alert('Csak egymást követő órákat lehet kijelölni megszakítás nélkül.');
+        }
+      } else {
+        alert('Csak ugyanabban a teremben lehet foglalni.');
+      }
     }
   };
 
-  const handleNextWeek = () => {
-    setCurrentDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() + 7)));
+
+  const handleConfirmBooking = () => {
+    if (selectedHours.length > 0) {
+      document.getElementById('booking-modal').style.display = 'block';
+    }
   };
 
-  const handlePrevWeek = () => {
-    setCurrentDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() - 7)));
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (bookingName.trim()) {
+      selectedHours.forEach(bookingTime => {
+        const bookingKey = `${bookingTime.room} ${bookingTime.hour}:00`; // Kulcs string formátumban
+        setBookings((prev) => ({
+          ...prev,
+          [bookingKey]: true, // Foglalás státusz beállítása
+        }));
+      });
+  
+      alert('Foglalás sikeresen létrejött!');
+      document.getElementById('booking-modal').style.display = 'none';
+      setBookingName('');
+      setSelectedHours([]); // Kijelölések törlése a foglalás után
+    }
+  };
+  
+  
+
+  const handleNextDay = () => {
+    setCurrentDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() + 1)));
   };
 
-  const getCurrentMonthAndDay = () => {
-    return currentDate.toLocaleString('hu-HU', { month: 'long', day: 'numeric' });
+  const handlePrevDay = () => {
+    setCurrentDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() - 1)));
   };
+
+  const getCurrentDateString = () => {
+    return currentDate.toLocaleDateString('hu-HU', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
+
+
 
   return (
     <div className="weekly-calendar">
       <h2>Heti Foglalási Naptár</h2>
       <div className="header">
-        <button onClick={handlePrevWeek}>&lt; Előző hét</button>
-        <span>{getCurrentMonthAndDay()}</span>
-        <button onClick={handleNextWeek}>Következő hét &gt;</button>
+        <button onClick={handlePrevDay}>&lt; Előző nap</button>
+        <span>{getCurrentDateString()}</span>
+        <button onClick={handleNextDay}>Következő nap &gt;</button>
       </div>
       <table>
         <thead>
           <tr>
             <th>Órák</th>
-            {days.map((day) => (
-              <th key={day}>{day}</th>
+            {rooms.map((room) => (
+              <th key={room}>{room}</th>
             ))}
           </tr>
         </thead>
@@ -49,26 +110,49 @@ const WeeklyCalendar = () => {
           {hours.map((hour) => (
             <tr key={hour}>
               <td>{hour}:00</td>
-              {days.map((day, index) => {
-                // A hét napjait a megfelelő dátummal szinkronizálni kell
-                const date = new Date(currentDate);
-                date.setDate(date.getDate() + index - date.getDay() + 1); // Hétfő kezdete
-                const bookingTime = `${day} ${hour}:00`;
-                
+
+
+
+              {rooms.map((room) => {
+                const isSelected = selectedHours.some(
+                  (selected) => selected.room === room && selected.hour === hour
+                );
+                const bookingTime = `${room} ${hour}:00`;
+
                 return (
-                  <td 
-                    key={`${day}-${hour}`} 
-                    onClick={() => handleBook(day, hour)} 
-                    className={bookings.includes(bookingTime) ? 'booked' : ''}
+                  <td
+                    key={`${room}-${hour}`}
+                    onClick={() => handleCellClick(room, hour)}
+                    className={`${bookings[bookingTime] ? 'booked' : ''} ${isSelected ? 'selected' : ''
+                      }`}
                   >
-                    {bookings.includes(bookingTime) ? 'Foglalt' : 'Szabad'}
+                    {bookings[bookingTime] ? 'Foglalt' : 'Szabad'}
                   </td>
                 );
               })}
+
             </tr>
           ))}
         </tbody>
       </table>
+      <button onClick={handleConfirmBooking} disabled={selectedHours.length === 0}>Foglalás megerősítése</button>
+
+      {/* Modal HTML form */}
+      <div id="booking-modal" className="modal">
+        <div className="modal-content">
+          <span className="close" onClick={() => document.getElementById('booking-modal').style.display = 'none'}>&times;</span>
+          <h2>Foglalás megerősítése</h2>
+          <form onSubmit={handleFormSubmit}>
+            <label>
+              Foglaló neve:
+              <input type="text" value={bookingName} onChange={(e) => setBookingName(e.target.value)} required />
+            </label>
+            <button type="submit">Foglalás</button>
+          </form>
+        </div>
+      </div>
+
+      
     </div>
   );
 };
