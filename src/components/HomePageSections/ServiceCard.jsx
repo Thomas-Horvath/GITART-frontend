@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const ServiceCard = ({ title, description, buttonText, icon, iconBgColor }) => {
+const ServiceCard = ({ title, description, buttonText, icon, iconBgColor, path }) => {
   return (
     <div className="card">
       <div className="icon-wrapper">
@@ -14,7 +14,7 @@ const ServiceCard = ({ title, description, buttonText, icon, iconBgColor }) => {
       <div className="text-wrapper">
         <h3 className='card-title'>{title}</h3>
         <p className='card-description'>{description}</p>
-        <Link to='/stúdió' className='btn'>{buttonText}</Link>
+        <Link to={path} className='btn'>{buttonText}</Link>
       </div>
     </div>
   );

@@ -12,21 +12,24 @@ const services = () => {
             description: 'Professzionális felvétel, modern eszközökkel és tapasztalt hangmérnökökkel.',
             buttonText: 'Tudj meg többet',
             iconBgColor: '#d33c07',
-            icon: <FiSliders size={40} color="#fff" />
+            icon: <FiSliders size={40} color="#fff" />,
+            path: '/stúdió'
         },
         {
             title: 'Próbaterem Bérlés',
             description: 'Teljesen felszerelt, hangszigetelt termek 1.800 Ft-tól. Foglalj most, és élvezd a tökéletes akusztikát!',
             buttonText: 'Foglalj most',
             iconBgColor: '#f37900',
-            icon: <IoMdMicrophone size={50} color="#fff" />
+            icon: <IoMdMicrophone size={50} color="#fff" />,
+            path: '/termek'
         },
         {
             title: 'Gitár Workshopok',
             description: 'Képzeld el magad egy profi gitárosként! Workshopok minden szinten, a kezdőtől a haladóig.',
             buttonText: 'Csatlakozz',
             iconBgColor: '#c4ba00',
-            icon: <GiGuitarBassHead size={55} color="#fff" />
+            icon: <GiGuitarBassHead size={55} color="#fff" />,
+            path:'/események'
         }
     ];
     return (
@@ -47,6 +50,7 @@ const services = () => {
                         buttonText={service.buttonText}
                         iconBgColor={service.iconBgColor}
                         icon={service.icon}
+                        path={service.path}
                     />
                 ))}
             </div>

@@ -1,0 +1,52 @@
+
+.my-bookings-content-wrapper {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: #222; 
+    width: 100%;
+
+    h2 {
+        margin-bottom: 30px;
+        font-size: 2.3rem;
+        color: $main-color;
+        text-align: center;
+    }
+
+    .booking-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+            border: 1px solid #444; // Sötétebb keret
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+            color: #ffffff; // Fehér szöveg
+        }
+
+        th {
+            background-color: $main-color; // Kék háttér a fejlécnek
+            color: $bg; // Fehér szöveg
+        }
+
+        tr {
+            background-color: #333; // Sötét háttér a soroknak
+        }
+
+        tr:nth-child(even) {
+            background-color: #444; // Kicsit világosabb sötét a páros soroknak
+        }
+
+        tr:hover {
+            background-color: #555; // Hover szín
+            color: #ffffff; // Fehér szöveg hover állapotban
+        }
+    }
+
+    button {
+        margin: 1em auto;
+    }
+}

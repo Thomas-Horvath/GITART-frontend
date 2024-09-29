@@ -10,7 +10,7 @@
 
 .banner {
     width: 100%;
-    height: 32rem;
+    height: 35rem;
     background: linear-gradient(rgba(21, 32, 46, 0.7), rgba(21, 32, 46, 0.4)), url("./assets/img/banner.jpg");
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@
 .page-background {
     min-width: 100%;
     z-index: 4;
-    margin-top: 29rem;
+    margin-top: 35rem;
     background: $bg;
 
     .home-content {

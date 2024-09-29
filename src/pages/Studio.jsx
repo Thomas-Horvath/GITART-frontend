@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function About({text}) {
+export default function Studio({text}) {
     return (
         <>
             <div className="page-container">

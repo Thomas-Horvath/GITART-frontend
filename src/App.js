@@ -3,12 +3,14 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './pages/Home';
-import About from './pages/About';
+import Studio from './pages/Studio.jsx';
 import Rooms from './pages/Rooms.jsx';
 import Booking from './pages/Booking.jsx';
-import Signin from './pages/Signin.jsx';
+
 import Contact from './pages/Contact';
 import ScrollTop from './components/ScrollToTop.jsx';
+import MyBooking from './components/MyBooking.jsx';
+import Events from './pages/Events.jsx';
 
 function App() {
   return (
@@ -18,11 +20,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home text="Home" />} />
-          <Route path='/about' element={<About text="About" />} />
-          <Route path='/rooms' element={<Rooms text="Rooms" />} />
-          <Route path='/booking' element={<Booking text="Booking" />} />
-          <Route path='/signin' element={<Signin text="Sign in" />} />
-          <Route path='/contact' element={<Contact text="Contact" />} />
+          <Route path='/stúdió' element={<Studio text="Studio" />} />
+          <Route path='/termek' element={<Rooms text="Rooms" />} />
+          <Route path='/foglalás' element={<Booking text="Booking" />} />
+          <Route path='/kapcsolat' element={<Contact text="Contact" />} />
+          <Route path='/foglalásaim' element={<MyBooking text="foglalásaim" />} />
+          <Route path='/események' element={<Events text="események" />} />
         </Routes>
         <Footer />
       </div>

@@ -1,3 +1,6 @@
+@use 'sass:color';
+
+
 $main-color: #cbaa5c;
 $main-color-70: #cbaa5c70;
 $white-smoke: #eee;
@@ -15,6 +18,12 @@ $bg-light: #827e7e;
     font-family: "raleway";
     src: url('./fonts/Raleway-Regular.ttf');
 }
+
+@function darken-10($color) {
+    @return color.adjust($color, $lightness: -10%);
+  }
+  
+
 
 * {
     margin: 0;
@@ -70,11 +79,13 @@ li {
     border: none;
     cursor: pointer;
     box-shadow: 4px 4px 10px #000;
+    width: fit-content;
+ 
 
     transition: background-color .2s ease-in-out;
 
     &:hover {
-        background-color: darken($main-color, 10%);
+        background-color: darken-10($main-color);
     }
 }
 
@@ -94,7 +105,7 @@ li {
     color: $white-smoke;
     margin-bottom: 1.5rem;
 
-    &::after {
+    &::after { 
         content: "";
         position: absolute;
         bottom: 0;
@@ -110,6 +121,26 @@ h3 {
     color: $main-color;
     margin-bottom: .4rem;
 }
+
+.error {
+    color: darkred;
+    margin: .3rem;
+}
+.success {
+    color: darkgreen;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 576px) {
    
@@ -129,4 +160,6 @@ h3 {
 @import './sales.scss';
 @import './prices_section.scss';
 @import './calendar.scss';
+@import './login_modals.scss';
+@import './my_bookings.scss';
 @import './footer.scss';
