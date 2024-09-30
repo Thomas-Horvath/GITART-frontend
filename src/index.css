@@ -739,6 +739,7 @@ h3 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   background-color: #222;
   width: 100%;
+  min-height: 40rem;
 }
 .my-bookings-content-wrapper h2 {
   margin-bottom: 30px;

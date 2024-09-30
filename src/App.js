@@ -18,7 +18,7 @@ function App() {
       <div className="App">
         <ScrollTop />
         <Navbar />
-        <Routes>
+        <Routes> 
           <Route path='/' element={<Home text="Home" />} />
           <Route path='/stúdió' element={<Studio text="Studio" />} />
           <Route path='/termek' element={<Rooms text="Rooms" />} />

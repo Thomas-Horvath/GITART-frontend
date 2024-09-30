@@ -50,9 +50,8 @@ const WeeklyCalendar = () => {
 
   // Profiladatok lekérdezése és foglalások betöltése a komponens indulásakor
   useEffect(() => {
-    const fetchProfileAndBookings = async () => {
+    const fetchProfile = async () => {
       try {
-        // Profil adatok lekérdezése
         const profileResponse = await fetch(`${process.env.REACT_APP_API_URL}/profile`, {
           method: 'GET',
           headers: {
@@ -60,28 +59,34 @@ const WeeklyCalendar = () => {
             'Authorization': `Bearer ${token}`
           },
         });
-
+  
         if (!profileResponse.ok) {
           throw new Error('Nem sikerült lekérni a profil adatokat');
         }
-
+  
         const profileData = await profileResponse.json();
-        setProfile(profileData)
-
-        // Foglalások betöltése
+        setProfile(profileData);
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        setAlertMessage('Hiba a profil betöltésekor!');
+        setIsAlertVisible(true);
+      }
+    };
+  
+    const fetchBookings = async () => {
+      try {
         const bookingsResponse = await fetch(`${process.env.REACT_APP_API_URL}/bookings`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
-
+  
         if (!bookingsResponse.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Nem sikerült lekérni a foglalásokat');
         }
-
+  
         const data = await bookingsResponse.json();
         const formattedBookings = {};
-        // console.log(data);
-
+  
         data.forEach((booking) => {
           const bookingDate = new Date(booking.BookingDate).toISOString().split('T')[0];
           booking.Hours.forEach((hour) => {
@@ -89,19 +94,23 @@ const WeeklyCalendar = () => {
             formattedBookings[bookingKey] = true;
           });
         });
-
+  
         setBookings(formattedBookings);
       } catch (error) {
-        console.error('Error fetching profile or bookings:', error);
-        setAlertMessage('Hiba a profil vagy foglalások betöltésekor!');
+        console.error('Error fetching bookings:', error);
+        setAlertMessage('Hiba a foglalások betöltésekor!');
         setIsAlertVisible(true);
       }
     };
-
+  
+    // Profil adatok lekérdezése, ha be vagyunk jelentkezve
     if (isLoggedIn) {
-      fetchProfileAndBookings();
+      fetchProfile();
     }
+    // Foglalások lekérdezése függetlenül a bejelentkezéstől
+    fetchBookings();
   }, [isLoggedIn, token]);
+  
 
 
 
