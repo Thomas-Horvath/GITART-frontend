@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/rehearsal_room/static/css/main.f98020a9.css",
-    "main.js": "/rehearsal_room/static/js/main.26a4bc84.js",
-    "static/media/banner.jpg": "/rehearsal_room/static/media/banner.28d2d702571a8ef7e413.jpg",
-    "static/media/PostNoBillsJaffna-ExtraBold.ttf": "/rehearsal_room/static/media/PostNoBillsJaffna-ExtraBold.2240aa28196a8ddae215.ttf",
-    "static/media/Raleway-Regular.ttf": "/rehearsal_room/static/media/Raleway-Regular.d9219d8a361ac3530c7e.ttf",
-    "index.html": "/rehearsal_room/index.html",
-    "main.f98020a9.css.map": "/rehearsal_room/static/css/main.f98020a9.css.map",
-    "main.26a4bc84.js.map": "/rehearsal_room/static/js/main.26a4bc84.js.map"
+    "main.css": "/GITART-frontend/static/css/main.c6fb8d38.css",
+    "main.js": "/GITART-frontend/static/js/main.26a4bc84.js",
+    "static/media/banner.jpg": "/GITART-frontend/static/media/banner.28d2d702571a8ef7e413.jpg",
+    "static/media/PostNoBillsJaffna-ExtraBold.ttf": "/GITART-frontend/static/media/PostNoBillsJaffna-ExtraBold.2240aa28196a8ddae215.ttf",
+    "static/media/Raleway-Regular.ttf": "/GITART-frontend/static/media/Raleway-Regular.d9219d8a361ac3530c7e.ttf",
+    "index.html": "/GITART-frontend/index.html",
+    "main.c6fb8d38.css.map": "/GITART-frontend/static/css/main.c6fb8d38.css.map",
+    "main.26a4bc84.js.map": "/GITART-frontend/static/js/main.26a4bc84.js.map"
   },
   "entrypoints": [
-    "static/css/main.f98020a9.css",
+    "static/css/main.c6fb8d38.css",
     "static/js/main.26a4bc84.js"
   ]
 }
