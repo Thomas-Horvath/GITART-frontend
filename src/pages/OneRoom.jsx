@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { img } from '../assets/assets';
 
 const OneRoom = () => {
   const { id } = useParams(); // A terem ID-je a paraméterekből
@@ -36,70 +37,83 @@ const OneRoom = () => {
 
   return (
     <div className="one-room">
-      <h2>{room.name}</h2>
-      <p><strong>Méret:</strong> {room.size}</p>
-      <p><strong>Óradíj:</strong> {room.price_per_hour} Ft</p>
-      <p><strong>Leírás:</strong> {room.description}</p>
 
-      <h3>Felszerelés</h3>
+      <div className="one-room-banner">
+        <img src={img.room1} alt="" />
+        <div className="text-content">
 
-      {/* Mikrofonok */}
-      {room.equipment?.microphones && (
-        <div>
-          <h4>Mikrofonok</h4>
-          <p><strong>Márka:</strong> {room.equipment.microphones.brand}</p>
-          <p><strong>Modellek:</strong> {room.equipment.microphones.models.join(', ')}</p>
-          <p>{room.equipment.microphones.description}</p>
+          <h2>{room.name}</h2>
+          <p><strong>Óradíj:</strong> {room.price_per_hour} Ft</p>
         </div>
-      )}
+      </div>
+      <div className="one-room-container">
 
-      {/* Dobok */}
-      {room.equipment?.drums && (
-        <div>
-          <h4>Dobok</h4>
-          <p><strong>Cintányérok</strong></p>
-          <p><strong>Márka:</strong> {room.equipment.drums.cymbals.brand}</p>
-          <p><strong>Modellek:</strong> {room.equipment.drums.cymbals.models.join(', ')}</p>
-          <p>{room.equipment.drums.cymbals.description}</p>
-          <p><strong>Pergő:</strong> {room.equipment.drums.snare.brand} {room.equipment.drums.snare.model}, {room.equipment.drums.snare.size}</p>
-          <p>{room.equipment.drums.snare.description}</p>
-          <p><strong>Basszusdob:</strong> {room.equipment.drums.bass_drum.brand} {room.equipment.drums.bass_drum.model}, {room.equipment.drums.bass_drum.size}</p>
-          <p>{room.equipment.drums.bass_drum.description}</p>
-        </div>
-      )}
 
-      {/* Gitárerősítő */}
-      {room.equipment?.guitar_amp && (
-        <div>
-          <h4>Gitárerősítő</h4>
-          <p><strong>Márka:</strong> {room.equipment.guitar_amp.brand}</p>
-          <p><strong>Modell:</strong> {room.equipment.guitar_amp.model}</p>
-          <p><strong>Teljesítmény:</strong> {room.equipment.guitar_amp.power}</p>
-          <p>{room.equipment.guitar_amp.description}</p>
-        </div>
-      )}
 
-      {/* Basszusgitár erősítő */}
-      {room.equipment?.bass_amp && (
-        <div>
-          <h4>Basszusgitár erősítő</h4>
-          <p><strong>Márka:</strong> {room.equipment.bass_amp.brand}</p>
-          <p><strong>Modell:</strong> {room.equipment.bass_amp.model}</p>
-          <p><strong>Teljesítmény:</strong> {room.equipment.bass_amp.power}</p>
-          <p>{room.equipment.bass_amp.description}</p>
-        </div>
-      )}
+        <p><strong>Méret:</strong> {room.size}</p>
 
-      {/* PA rendszer */}
-      {room.equipment?.pa_system && (
-        <div>
-          <h4>PA rendszer</h4>
-          <p><strong>Márka:</strong> {room.equipment.pa_system.brand}</p>
-          <p><strong>Modell:</strong> {room.equipment.pa_system.model}</p>
-          <p><strong>Teljesítmény:</strong> {room.equipment.pa_system.power}</p>
-          <p>{room.equipment.pa_system.description}</p>
-        </div>
-      )}
+        <p><strong>Leírás:</strong> {room.description}</p>
+
+        <h3>Felszerelés</h3>
+
+        {/* Mikrofonok */}
+        {room.equipment?.microphones && (
+          <div>
+            <h4>Mikrofonok</h4>
+            <p><strong>Márka:</strong> {room.equipment.microphones.brand}</p>
+            <p><strong>Modellek:</strong> {room.equipment.microphones.models.join(', ')}</p>
+            <p>{room.equipment.microphones.description}</p>
+          </div>
+        )}
+
+        {/* Dobok */}
+        {room.equipment?.drums && (
+          <div>
+            <h4>Dobok</h4>
+            <p><strong>Cintányérok</strong></p>
+            <p><strong>Márka:</strong> {room.equipment.drums.cymbals.brand}</p>
+            <p><strong>Modellek:</strong> {room.equipment.drums.cymbals.models.join(', ')}</p>
+            <p>{room.equipment.drums.cymbals.description}</p>
+            <p><strong>Pergő:</strong> {room.equipment.drums.snare.brand} {room.equipment.drums.snare.model}, {room.equipment.drums.snare.size}</p>
+            <p>{room.equipment.drums.snare.description}</p>
+            <p><strong>Basszusdob:</strong> {room.equipment.drums.bass_drum.brand} {room.equipment.drums.bass_drum.model}, {room.equipment.drums.bass_drum.size}</p>
+            <p>{room.equipment.drums.bass_drum.description}</p>
+          </div>
+        )}
+
+        {/* Gitárerősítő */}
+        {room.equipment?.guitar_amp && (
+          <div>
+            <h4>Gitárerősítő</h4>
+            <p><strong>Márka:</strong> {room.equipment.guitar_amp.brand}</p>
+            <p><strong>Modell:</strong> {room.equipment.guitar_amp.model}</p>
+            <p><strong>Teljesítmény:</strong> {room.equipment.guitar_amp.power}</p>
+            <p>{room.equipment.guitar_amp.description}</p>
+          </div>
+        )}
+
+        {/* Basszusgitár erősítő */}
+        {room.equipment?.bass_amp && (
+          <div>
+            <h4>Basszusgitár erősítő</h4>
+            <p><strong>Márka:</strong> {room.equipment.bass_amp.brand}</p>
+            <p><strong>Modell:</strong> {room.equipment.bass_amp.model}</p>
+            <p><strong>Teljesítmény:</strong> {room.equipment.bass_amp.power}</p>
+            <p>{room.equipment.bass_amp.description}</p>
+          </div>
+        )}
+
+        {/* PA rendszer */}
+        {room.equipment?.pa_system && (
+          <div>
+            <h4>PA rendszer</h4>
+            <p><strong>Márka:</strong> {room.equipment.pa_system.brand}</p>
+            <p><strong>Modell:</strong> {room.equipment.pa_system.model}</p>
+            <p><strong>Teljesítmény:</strong> {room.equipment.pa_system.power}</p>
+            <p>{room.equipment.pa_system.description}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

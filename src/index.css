@@ -1032,8 +1032,37 @@ h3 {
     justify-content: space-between;
   }
 }
-.one-room {
-  height: 100vh;
+.one-room .one-room-banner {
+  position: relative;
+}
+.one-room .one-room-banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: bottom;
+}
+.one-room .one-room-banner .text-content {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 8% 5%;
+}
+.one-room .one-room-banner h2 {
+  font-size: 3rem;
+  color: #cbaa5c;
+  text-shadow: 2px 2px 4px #000;
+}
+.one-room .one-room-banner p {
+  font-size: 1.5rem;
+  color: #cbaa5c;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .footer {
