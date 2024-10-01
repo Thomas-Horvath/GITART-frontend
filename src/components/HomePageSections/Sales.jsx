@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { FaDollarSign } from 'react-icons/fa'; // Importáljuk a dollár jelet az ikonok közül
+import { PiPianoKeysFill } from "react-icons/pi";
 
 const Sales = () => {
   return (
@@ -19,7 +20,7 @@ const Sales = () => {
           <p>Ne hagyd ki ezt a kivételes lehetőséget, és élvezd a zenélés örömét prémium környezetben, anélkül, hogy a költségeid miatt kellene aggódnod!</p>
         </div>
         <div className="sales-right">
-          <h3><FaDollarSign /> Egyéni Gyakorlási Lehetőség</h3>
+          <h3><PiPianoKeysFill /> Egyéni Gyakorlási Lehetőség</h3>
           <p>Számunkra fontos, hogy támogassuk zenei fejlődésedet, ezért egyéni gyakorlási lehetőséget is kínálunk a legjobb áron!</p>
           <p>Mostantól csak <strong>2000 Ft/óra</strong> áron bérelheted a próbatermeket, így lehetőséged van arra, hogy a saját tempódban és a saját stílusodban gyakorolj.</p>
           <p>Ez a kedvezményes ár lehetővé teszi, hogy maximálisan kihasználhasd a próbaterem adta lehetőségeket, és hozzájárulhass a zenei fejlődésedhez. Ne hagyd ki ezt a remek alkalmat, hogy még jobb zenésszé válj!</p>

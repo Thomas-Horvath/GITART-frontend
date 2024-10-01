@@ -1,10 +1,11 @@
 .price {
     width: 100%;
-    background: $bg-light;
+    background: $bg-grey;
     padding: 3rem 1rem;
 
     .heading {
 
+     
         p {
             color: $white-smoke;
         }
@@ -20,7 +21,7 @@
         .price-left {
             flex: 1;
             padding: 0 1rem;
-            color: $white-smoke;
+            color: $white ;
 
             li {
                 margin-bottom: .5rem;

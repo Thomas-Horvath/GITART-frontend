@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { img } from '../assets/assets';
+import BackBtn from '../components/BackBtn'
 
 const OneRoom = () => {
   const { id } = useParams(); // A terem ID-je a paraméterekből
@@ -27,6 +28,19 @@ const OneRoom = () => {
   // Szűrés az összes terem adatai közül a megfelelő ID-jú teremre
   const room = rooms.find((r) => r.id === parseInt(id));
 
+
+  let imgSrc;
+
+  if (id === '1') {
+    imgSrc = img.room1;
+  } else if (id === '2') {
+    imgSrc = img.room2;
+  } else {
+    imgSrc = img.room3;
+  }
+  console.log(imgSrc);
+
+
   if (error) {
     return <div>Hiba: {error}</div>;
   }
@@ -39,7 +53,7 @@ const OneRoom = () => {
     <div className="one-room">
 
       <div className="one-room-banner">
-        <img src={img.room1} alt="" />
+        <img src={imgSrc} alt="" />
         <div className="text-content">
 
           <h2>{room.name}</h2>
@@ -113,6 +127,10 @@ const OneRoom = () => {
             <p>{room.equipment.pa_system.description}</p>
           </div>
         )}
+      </div>
+      <div className="back-btn">
+
+        <BackBtn />
       </div>
     </div>
   );

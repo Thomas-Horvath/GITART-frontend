@@ -1,5 +1,5 @@
 .friends {
-    background-color: $bg-light; // Háttérszín
+    background-color: $bg-grey;
     padding: 4rem 0 7rem 0;
     width: 100%;
 
@@ -7,28 +7,38 @@
         text-align: center;
         margin-bottom: 20px;
 
+       
+
+        h2 {
+            color: $white;
+        }
 
         h3 {
             font-size: 1.5rem;
             margin: 10px 0;
+
         }
 
         .artists {
             display: flex;
-            flex-direction: column; // Két sorra
-            align-items: center; // Középre igazítás
+            flex-direction: column; 
+            align-items: center; 
+            color: $white;
 
             .row {
-                display: flex; // Egymás mellett
-                justify-content: center; // Középre igazítás
+                display: flex;
+                justify-content: center; 
                 flex-wrap: wrap;
-                margin: 5px 0; // Felső és alsó margó
+                margin: 5px 0; 
 
                 span {
                     white-space: nowrap;
-                    margin: 0 10px; // Közötti tér
-                    font-size: 1rem; // Betűméret
-                    color: $white-smoke; // Szöveg színe
+                    margin: 0 10px; 
+                    font-size: 1rem; 
+                    color: $white;
+                    font-weight: bold;
+                    letter-spacing: .1rem;
+
                 }
             }
         }

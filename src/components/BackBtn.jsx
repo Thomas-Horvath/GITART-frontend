@@ -10,7 +10,7 @@ const BackBtn = () => {
 
     return (
         <>
-            <button className='btn' onClick={handleBack}>Vissza</button>
+            <button className='btn ' onClick={handleBack}>Vissza</button>
         </>
     )
 }
