@@ -10,7 +10,7 @@ const Card = ({ title, description, price, id, image }) => {
             <div className="card-content">
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <p>Ár: {price} Ft/óra</p>
+                <p className='room-card-price'>Ár: {price} Ft/óra</p>
             </div>
             <Link className='card-btn' to={`/termek/${id}`}>Terem felszereltsége</Link>
         </div>

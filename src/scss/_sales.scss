@@ -1,62 +1,75 @@
 .sales {
   padding: 3rem 0 5rem 0;
-    background: $bg;
-    width: 100%;
-    .heading {
-        span{
-            font-size:2rem;
-        }
+  background: $bg;
+  width: 100%;
+
+  .heading {
+    span {
+      font-size: 2rem;
+    }
+  }
+
+  .sales-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem .5rem 2rem .5rem;
+    gap: 20px;
+
+    strong {
+      color: $main-color;
     }
 
-    .sales-container {
+    .sales-left,
+    .sales-right {
+      flex: 1; // Minden rész egyforma széles
+
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+
+      h3 {
+
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 3rem .5rem 2rem .5rem;
-        gap: 20px;
-    strong {
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
         color: $main-color;
-    }
-        .sales-left, .sales-right {
-          flex: 1; // Minden rész egyforma széles
-   
-          padding: 3rem;
-          border-radius: 8px;
-          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-    
-          h3 {
-           
-            display: flex;
-            align-items: center; 
-            justify-content: center;
-            font-size: 2rem;
-            color: $main-color; // Kék szín
-            margin-bottom: 15px;
-    
-            svg {
-              margin-right: 8px; // Kisebb távolság az ikon és a szöveg között
-            }
-          }
-    
-          p {
-            font-size: 16px;
-            color: $text-color;
-            line-height: 1.6;
-          }
+        margin-bottom: 15px;
+
+        svg {
+          margin-right: 8px; // Kisebb távolság az ikon és a szöveg között
         }
       }
-      .sales-btn-group {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
+
+      p {
+        font-size: 16px;
+        color: $text-color;
+        line-height: 1.6;
       }
+    }
+  }
+
+  .sales-btn-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
 }
 
-@media (min-width: 992px) { 
-    .sales {
-        .sales-container {
-            flex-direction: row;
+@media (min-width: 992px) {
+  .sales {
+    .sales-container {
+      flex-direction: row;
+      .sales-right , .sales-left{ 
+        h3 {
+          flex-direction: row;
         }
+      }
     }
+
+  }
 }
