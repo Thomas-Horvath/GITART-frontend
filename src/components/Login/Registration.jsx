@@ -235,7 +235,7 @@ const RegisterModal = ({ onClose, isVisible , setIsRegisterModalVisible }) => {
                     </div>
                     {registrationSuccess && <p className="success">Sikeres regisztráció!</p>} {/* Sikeres üzenet */}
                     {serverErrors && <p className="error">{serverErrors.message}</p>}
-                    <button type="submit">Regisztrálás</button>
+                    <button className='btn' type="submit">Regisztrálás</button>
                 </form>
             </div>
         </div>

@@ -10,7 +10,7 @@ const AlertModal = ({ message, isVisible, onClose }) => {
         <div className="message-container">
           <p>{message}</p>
         </div>
-        <button  onClick={onClose}>Oké</button>
+        <button className='btn'  onClick={onClose}>Oké</button>
       </div>
     </div>
   );

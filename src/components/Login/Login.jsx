@@ -82,7 +82,7 @@ const LoginModal = ({ onClose , isVisible }) => {
                         </span>
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
-                    <button type="submit">Bejelentkezés</button>
+                    <button className='btn' type="submit">Bejelentkezés</button>
                 </form>
             </div>
         </div>

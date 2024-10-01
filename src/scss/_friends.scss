@@ -1,0 +1,75 @@
+.friends {
+    background-color: $bg-light; // Háttérszín
+    padding: 4rem 0 7rem 0;
+    width: 100%;
+
+    .heading {
+        text-align: center;
+        margin-bottom: 20px;
+
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .artists {
+            display: flex;
+            flex-direction: column; // Két sorra
+            align-items: center; // Középre igazítás
+
+            .row {
+                display: flex; // Egymás mellett
+                justify-content: center; // Középre igazítás
+                flex-wrap: wrap;
+                margin: 5px 0; // Felső és alsó margó
+
+                span {
+                    white-space: nowrap;
+                    margin: 0 10px; // Közötti tér
+                    font-size: 1rem; // Betűméret
+                    color: $white-smoke; // Szöveg színe
+                }
+            }
+        }
+
+        p {
+            margin: 5px 0;
+
+        }
+    }
+
+    .swiper {
+        width: 100%; // Teljes szélesség
+        overflow: hidden; // Elrejti a túlcsorduló képeket
+        margin-top: 2rem;
+
+        .swiper-wrapper {
+            display: flex;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0; // Megakadályozza, hogy a slide-ok zsugorodjanak
+
+            img {
+                width: 200px;
+                height: 100%;
+                object-fit: cover;
+                background: #555;
+                border: 1px solid $white-smoke;
+                cursor: grab;
+            }
+        }
+
+        .swiper-pagination,
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: none;
+        }
+    }
+}

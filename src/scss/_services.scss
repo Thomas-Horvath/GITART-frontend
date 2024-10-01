@@ -1,5 +1,5 @@
 .services {
-    padding: 2rem 0;
+    padding: 3rem 0 5rem; 
     margin-bottom: 4rem;
 
 
@@ -9,12 +9,10 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 2rem;
-        margin-top: 2rem;
+        margin-top: 5rem;
 
         .card {
             flex: 1 1 300px; // Rugalmas méret, minimum 300px
-            // max-width: 100%;
-            padding: 1rem;
             transition: transform 0.1s;
             display: flex;
             flex-direction: column;
@@ -25,6 +23,9 @@
 
             .card-title {
                 color: $white-smoke;
+            }
+            .card-description {
+                margin: .6rem 0;
             }
 
             .text-wrapper {

@@ -3,6 +3,7 @@ import Services from '../components/HomePageSections/Services.jsx';
 import Prices from '../components/HomePageSections/Prices.jsx';
 import About from '../components/HomePageSections/About.jsx';
 import Sales from '../components/HomePageSections/Sales.jsx';
+import Friends from '../components/HomePageSections/Friends.jsx';
 
 
 export default function Home(props) {
@@ -19,9 +20,9 @@ export default function Home(props) {
                         <Services />
                     </div>
                 </section>
-                <About />
                 <Prices />
-      
+                <About />
+                <Friends />
                 <Sales />
             </div>
         </>

@@ -5,7 +5,8 @@ $main-color: #cbaa5c;
 $main-color-70: #cbaa5c70;
 $white-smoke: #eee;
 $bg: #29292a;
-$text-color: #747474;
+$text-color-darker: #747474;
+$text-color: #a5a5a5;
 $bg-light: #827e7e;
 
 
@@ -21,8 +22,8 @@ $bg-light: #827e7e;
 
 @function darken-10($color) {
     @return color.adjust($color, $lightness: -10%);
-  }
-  
+}
+
 
 
 * {
@@ -78,9 +79,10 @@ li {
     letter-spacing: .1rem;
     border: none;
     cursor: pointer;
-    box-shadow: 4px 4px 10px #000;
+    box-shadow: 4px 4px 10px #222;
     width: fit-content;
- 
+    border-radius: 4px;
+    display: block;
 
     transition: background-color .2s ease-in-out;
 
@@ -105,7 +107,7 @@ li {
     color: $white-smoke;
     margin-bottom: 1.5rem;
 
-    &::after { 
+    &::after {
         content: "";
         position: absolute;
         bottom: 0;
@@ -126,6 +128,7 @@ h3 {
     color: darkred;
     margin: .3rem;
 }
+
 .success {
     color: darkgreen;
 }
@@ -143,23 +146,25 @@ h3 {
 
 
 @media (min-width: 576px) {
-   
-        .section-title {
-            font-size: 3rem;
-        }
-    
 
-  
+    .section-title {
+        font-size: 3rem;
+    }
+
+
+
 }
 
 @import './navbar.scss';
 @import './home.scss';
 @import './services.scss';
 @import './about.scss';
-@import './references.scss';
+@import './friends.scss';
 @import './sales.scss';
 @import './prices_section.scss';
 @import './calendar.scss';
 @import './login_modals.scss';
 @import './my_bookings.scss';
+@import './rooms.scss';
+@import './one_room.scss';
 @import './footer.scss';

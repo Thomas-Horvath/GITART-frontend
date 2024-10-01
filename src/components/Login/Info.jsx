@@ -3,7 +3,6 @@ import { IoMdClose } from "react-icons/io";
 
 
 
-// *fghfghg
 const InfoModal = ({ onClose , isVisible }) => {
     return (
         <div className={`login-modal ${ isVisible ? 'show' : ''}`
@@ -25,7 +24,7 @@ const InfoModal = ({ onClose , isVisible }) => {
                     <br /><br />
                     A foglalásokat a naptárban tudod intézni.
                 </p>
-                <button onClick={onClose}>Bezárás</button>
+                <button className='btn' onClick={onClose}>Bezárás</button>
             </div>
         </div>
     );

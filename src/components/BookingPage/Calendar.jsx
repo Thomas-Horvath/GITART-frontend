@@ -435,7 +435,7 @@ const WeeklyCalendar = () => {
             <div className="message-container">
               {successMessage && <p className="success-message">{successMessage}</p>}
             </div>
-            <button type="submit">Foglalás</button>
+            <button className='btn' type="submit">Foglalás</button>
           </form>
         </div>
       </div>
