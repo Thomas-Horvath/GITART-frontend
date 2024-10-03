@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import BackBtn from '../components/BackBtn';
 
 export default function Legal() {
     return (
@@ -8,7 +10,7 @@ export default function Legal() {
                 <p>Itt találhatók a legfontosabb jogi információk.</p>
             </div>
 
-            <div className="section" id="impresszum">
+            <div className="policy-section" id="impresszum">
                 <h3>Impresszum</h3>
                 <p>
                     <strong>Szolgáltató neve:</strong> GitArt Próbaterem és Stúdió Kft.<br />
@@ -20,7 +22,7 @@ export default function Legal() {
                 </p>
             </div>
 
-            <div className="section" id="adatkezeles">
+            <div className="policy-section" id="adatkezelés">
                 <h3>Adatkezelés</h3>
                 <p>
                     Az általunk gyűjtött személyes adatok biztonságát komolyan vesszük. Az adatok kezelésére vonatkozó információkat
@@ -32,7 +34,7 @@ export default function Legal() {
                 </p>
             </div>
 
-            <div className="section" id="cookie">
+            <div className="policy-section" id="cookie">
                 <h3>Cookie kezelés</h3>
                 <p>
                     A weboldalunk sütiket (cookie-kat) használ a felhasználói élmény javítása érdekében. A sütik olyan kis
@@ -45,11 +47,16 @@ export default function Legal() {
                 </p>
             </div>
 
-            <div className="footer">
+            <div className="policy-footer">
                 <p>
                     Ha bármilyen kérdése van a fenti információkkal kapcsolatban, kérjük, lépjen velünk kapcsolatba az
-                    info@proba-terem.hu címen.
+                    info@gitart.hu címen.
                 </p>
+            </div>
+
+            <div className="btn-group">
+            <BackBtn />
+                <Link className='btn' to="/kapcsolat">Írj üzenet</Link>
             </div>
         </div>
     );

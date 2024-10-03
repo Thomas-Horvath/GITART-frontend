@@ -9,6 +9,7 @@
     z-index: 1000; // A modal mindig a legfelső rétegen legyen
     justify-content: center;
     align-items: center;
+   
 
     &.show {
         display: flex; // Megjelenítés, amikor aktív
@@ -22,9 +23,11 @@
         border-radius: 8px;
         max-width: 800px;
         width: 100%;
+        max-height: 90vh;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Enyhe árnyék
         position: relative; // Bezáró gomb pozícionálása miatt kell
-
+        overflow: auto;
+        
         h2 {
             margin-bottom: 1rem;
             font-size: 1.5em;

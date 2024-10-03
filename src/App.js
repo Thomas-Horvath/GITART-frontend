@@ -29,7 +29,7 @@ function App() {
           <Route path='/kapcsolat' element={<Contact text="Contact" />} />
           <Route path='/foglalásaim' element={<MyBooking />} />
           <Route path='/események' element={<Events text="események" />} />
-          <Route path='/adatkezelés' element={<Policy />} />
+          <Route path='/adatkezelés/:category' element={<Policy />} />
         </Routes>
         <Footer />
       </div>

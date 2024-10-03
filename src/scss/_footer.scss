@@ -13,6 +13,7 @@
         display: grid;
         gap: 2rem;
         grid-template-columns: repeat(1, 300px);
+        margin: 0;
 
         .footer-contacts {
             display: flex;
@@ -96,6 +97,7 @@
         .footer-container {
             grid-template-columns: repeat(2, 270px);
             gap: 1rem;
+            margin: auto;
 
             .policy-links {
                 justify-content: flex-end;

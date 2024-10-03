@@ -115,7 +115,7 @@ li {
     &::after {
         content: "";
         position: absolute;
-        bottom: 0;
+        bottom: -6px;
         left: 50%;
         transform: translateX(-50%);
         height: 2px;
@@ -175,4 +175,5 @@ h3 {
 @import './one_room.scss';
 @import './studio.scss';
 @import './contact.scss';
+@import './policy.scss';
 @import './footer.scss';

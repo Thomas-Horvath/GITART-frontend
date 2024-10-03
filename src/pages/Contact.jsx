@@ -78,13 +78,13 @@ export default function Contact() {
                         <h3>Kövess minket!</h3>
                         <p>
                             <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <FaFacebook size={30} />
+                                <FaFacebook size={50} />
                             </Link>
                             <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <FaInstagram size={32} />
+                                <FaInstagram size={52} />
                             </Link>
                             <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                                <FaYoutube size={38} />
+                                <FaYoutube size={58} />
                             </Link>
                         </p>
                     </div>
