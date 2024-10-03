@@ -1,30 +1,32 @@
 {
   "files": {
-    "main.css": "/GITART-frontend/static/css/main.021a963e.css",
-    "main.js": "/GITART-frontend/static/js/main.eec383ab.js",
-    "static/media/3.png": "/GITART-frontend/static/media/3.1a7eca41dadc37473061.png",
-    "static/media/4.png": "/GITART-frontend/static/media/4.ad1138a1346372f01e19.png",
-    "static/media/price.jpg": "/GITART-frontend/static/media/price.9ef1539a884254a7c451.jpg",
-    "static/media/9.jpg": "/GITART-frontend/static/media/9.03016f5572cf04e53491.jpg",
+    "main.css": "/GITART-frontend/static/css/main.ee113f8e.css",
+    "main.js": "/GITART-frontend/static/js/main.43caba11.js",
+    "static/media/1.jpg": "/GITART-frontend/static/media/1.e76ab5545b11b3267524.jpg",
+    "static/media/2.jpg": "/GITART-frontend/static/media/2.1b1c219bfbf18164e5f3.jpg",
+    "static/media/5.jpg": "/GITART-frontend/static/media/5.0f7cbe2dbb1141930958.jpg",
+    "static/media/4.jpg": "/GITART-frontend/static/media/4.465c60d6c39eccce7731.jpg",
+    "static/media/3.jpg": "/GITART-frontend/static/media/3.d1be4b3038cafccbd837.jpg",
+    "static/media/6.jpg": "/GITART-frontend/static/media/6.07333979b48012ac1289.jpg",
+    "static/media/studio_banner.jpg": "/GITART-frontend/static/media/studio_banner.bf755a64f90b098afccb.jpg",
+    "static/media/6.png": "/GITART-frontend/static/media/6.3f3541b04b977695b78e.png",
+    "static/media/2.png": "/GITART-frontend/static/media/2.1a7eca41dadc37473061.png",
+    "static/media/3.png": "/GITART-frontend/static/media/3.e5a12ee1350519a9aa1e.png",
+    "static/media/1.png": "/GITART-frontend/static/media/1.ad1138a1346372f01e19.png",
     "static/media/studio.jpg": "/GITART-frontend/static/media/studio.603a554191ab73a8c642.jpg",
     "static/media/7.jpg": "/GITART-frontend/static/media/7.310423e15ff47b79f1c6.jpg",
-    "static/media/5.jpg": "/GITART-frontend/static/media/5.79c58f9444097463c5ef.jpg",
     "static/media/banner.jpg": "/GITART-frontend/static/media/banner.28d2d702571a8ef7e413.jpg",
-    "static/media/4.jpg": "/GITART-frontend/static/media/4.a806ea8e9c9bad906559.jpg",
-    "static/media/2.jpg": "/GITART-frontend/static/media/2.1b1c219bfbf18164e5f3.jpg",
-    "static/media/3.jpg": "/GITART-frontend/static/media/3.008afdebaf5f24c420b5.jpg",
-    "static/media/6.jpg": "/GITART-frontend/static/media/6.d3a9daf7a070413422d2.jpg",
-    "static/media/1.jpg": "/GITART-frontend/static/media/1.e76ab5545b11b3267524.jpg",
     "static/media/10.jpg": "/GITART-frontend/static/media/10.a2476c9057608c3b5356.jpg",
     "static/media/8.jpg": "/GITART-frontend/static/media/8.231d1d119a8b4c038467.jpg",
+    "static/media/9.jpg": "/GITART-frontend/static/media/9.03016f5572cf04e53491.jpg",
     "static/media/PostNoBillsJaffna-ExtraBold.ttf": "/GITART-frontend/static/media/PostNoBillsJaffna-ExtraBold.2240aa28196a8ddae215.ttf",
     "static/media/Raleway-Regular.ttf": "/GITART-frontend/static/media/Raleway-Regular.d9219d8a361ac3530c7e.ttf",
     "index.html": "/GITART-frontend/index.html",
-    "main.021a963e.css.map": "/GITART-frontend/static/css/main.021a963e.css.map",
-    "main.eec383ab.js.map": "/GITART-frontend/static/js/main.eec383ab.js.map"
+    "main.ee113f8e.css.map": "/GITART-frontend/static/css/main.ee113f8e.css.map",
+    "main.43caba11.js.map": "/GITART-frontend/static/js/main.43caba11.js.map"
   },
   "entrypoints": [
-    "static/css/main.021a963e.css",
-    "static/js/main.eec383ab.js"
+    "static/css/main.ee113f8e.css",
+    "static/js/main.43caba11.js"
   ]
 }
