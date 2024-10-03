@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/GITART-frontend/static/css/main.ee113f8e.css",
+    "main.css": "/GITART-frontend/static/css/main.13254acd.css",
     "main.js": "/GITART-frontend/static/js/main.43caba11.js",
     "static/media/1.jpg": "/GITART-frontend/static/media/1.e76ab5545b11b3267524.jpg",
     "static/media/2.jpg": "/GITART-frontend/static/media/2.1b1c219bfbf18164e5f3.jpg",
@@ -22,11 +22,11 @@
     "static/media/PostNoBillsJaffna-ExtraBold.ttf": "/GITART-frontend/static/media/PostNoBillsJaffna-ExtraBold.2240aa28196a8ddae215.ttf",
     "static/media/Raleway-Regular.ttf": "/GITART-frontend/static/media/Raleway-Regular.d9219d8a361ac3530c7e.ttf",
     "index.html": "/GITART-frontend/index.html",
-    "main.ee113f8e.css.map": "/GITART-frontend/static/css/main.ee113f8e.css.map",
+    "main.13254acd.css.map": "/GITART-frontend/static/css/main.13254acd.css.map",
     "main.43caba11.js.map": "/GITART-frontend/static/js/main.43caba11.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee113f8e.css",
+    "static/css/main.13254acd.css",
     "static/js/main.43caba11.js"
   ]
 }
