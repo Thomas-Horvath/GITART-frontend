@@ -20,8 +20,8 @@
       gap: 1rem;
     }
 
-    
-    
+
+
     .login-btn,
     .info-icon {
       color: $main-color;
@@ -31,11 +31,12 @@
       align-items: center;
       font-size: 1.3rem;
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-      
+
       .info-icon {
-      width: 2rem;
-      height: 2rem;
+        width: 2rem;
+        height: 2rem;
       }
+
       &:hover {
         color: darken-10($main-color);
       }
@@ -80,8 +81,8 @@
     width: 100%;
     margin: 0 auto 2rem;
     border-collapse: collapse;
-  
-   
+
+
 
     th,
     td {
@@ -93,7 +94,7 @@
     }
 
     th {
-      background-color: $bg-light;
+      background-color: $bg-grey;
       color: $main-color;
       font-size: 1em;
     }
@@ -130,7 +131,7 @@
   }
 
   button {
-margin: auto;
+    margin: auto;
     cursor: pointer;
     margin-top: 1rem;
 
@@ -162,7 +163,9 @@ margin: auto;
   }
 
   .modal-content {
-    background-color: #fff;
+    background-color: $bg-grey;
+    color: $white-smoke;
+    border: 2px solid $main-color;
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;
@@ -196,8 +199,8 @@ margin: auto;
     }
 
     .message-container {
-      height: 1.4rem;
-      margin-bottom: .5rem;
+      height: 2.5rem;
+      margin-bottom: 1rem;
     }
 
     .success-message {
@@ -206,9 +209,9 @@ margin: auto;
     }
 
     button {
-   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-  }
-  
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
 
     .close {
       position: absolute;
@@ -219,7 +222,7 @@ margin: auto;
       color: #aaa;
 
       &:hover {
-        color: #000;
+        color: $main-color;
       }
     }
   }
@@ -236,6 +239,7 @@ margin: auto;
 
     .login-links {
       margin-bottom: 0;
+
       .link-container {
         flex-direction: row;
         gap: 2rem;

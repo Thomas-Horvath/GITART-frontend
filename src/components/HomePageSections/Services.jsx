@@ -21,7 +21,7 @@ const services = () => {
             buttonText: 'Foglalj most',
             iconBgColor: '#f37900',
             icon: <IoMdMicrophone size={50} color="#fff" />,
-            path: '/termek'
+            path: '/foglalás'
         },
         {
             title: 'Gitár Workshopok',

@@ -2,13 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../components/Rooms/RoomCard'; // Győződj meg róla, hogy a megfelelő útvonalat adtad meg
-import { img } from '../assets//assets';
+import { room1, room2, room3 } from '../assets//assets';
 
 
 const roomImages = [
-     img.room1,
-     img.room2,
-     img.room3,
+    room1.room1_1,
+    room2.room2_1,
+    room3.room3_1
 ];
 
 export default function Rooms() {
@@ -66,7 +66,7 @@ export default function Rooms() {
                         />
                     ))}
                 </div>
-                <Link  to="/foglalás" className="btn contact-link">
+                <Link to="/foglalás" className="btn contact-link">
                     Foglalj most!
                 </Link>
             </div>

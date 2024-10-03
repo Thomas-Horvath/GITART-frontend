@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
+import BodyScrollHidden from '../BodyScrollHidden';
 
-const RegisterModal = ({ onClose, isVisible , setIsRegisterModalVisible }) => {
+const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
+    BodyScrollHidden(isVisible)
+
+
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
     const [formData, setFormData] = useState({
@@ -90,7 +94,7 @@ const RegisterModal = ({ onClose, isVisible , setIsRegisterModalVisible }) => {
                 PhoneNumber: formattedPhone,
                 PolicyAccept: formData.dataPrivacy
             };
-            console.log(requestData);
+     
 
             try {
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
@@ -154,7 +158,7 @@ const RegisterModal = ({ onClose, isVisible , setIsRegisterModalVisible }) => {
                             value={formData.firstName}
                             onChange={handleChange}
                         />
-                        {errors.firstName && <p className="error">{errors.firstName}</p>}
+                        {errors.firstName && <p className="error">{errors.firstName}</p> }
                     </div>
                     <div className="input-group">
                         <label htmlFor="lastName">Vezetéknév:</label>

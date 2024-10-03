@@ -12,6 +12,7 @@ import ScrollTop from './components/ScrollToTop.jsx';
 import MyBooking from './components/MyBooking.jsx';
 import Events from './pages/Events.jsx';
 import OneRoom from './pages/OneRoom.jsx';
+import Policy from './pages/Policy.jsx';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/kapcsolat' element={<Contact text="Contact" />} />
           <Route path='/foglalásaim' element={<MyBooking />} />
           <Route path='/események' element={<Events text="események" />} />
+          <Route path='/adatkezelés' element={<Policy />} />
         </Routes>
         <Footer />
       </div>

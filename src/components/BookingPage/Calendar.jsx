@@ -337,6 +337,7 @@ const WeeklyCalendar = () => {
       <LoginModal
         isVisible={isLoginModalVisible}
         onClose={() => setIsLoginModalVisible(false)}
+     
       />
 
       {/* Register Modal */}

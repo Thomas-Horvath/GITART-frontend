@@ -1,5 +1,5 @@
 import React from 'react';
-import { img } from '../../assets/assets';
+import { studioImg } from '../../assets/assets';
 
 const About = () => {
     return (
@@ -21,7 +21,7 @@ const About = () => {
 
                 </div>
                 <div className="about-right">
-                    <img src={img.studio} alt="keverőpult" />
+                    <img src={studioImg.studio} alt="keverőpult" />
                 </div>
             </div>
         </section>

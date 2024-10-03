@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import BodyScrollHidden from '../BodyScrollHidden';
 
-const LoginModal = ({ onClose , isVisible }) => {
+const LoginModal = ({ onClose, isVisible }) => {
+
+    BodyScrollHidden(isVisible)
+
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [loginFormData, setLoginFormData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
+
+
+    useEffect(() => {
+        if (!isVisible) {
+            setErrors({})
+        }
+    }, [isVisible]);
+
 
     const handleChange = (e) => {
         const { id, value } = e.target;

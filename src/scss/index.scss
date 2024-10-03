@@ -13,6 +13,7 @@ $bg-light: #827e7e;
 $bg-grey: #444;
 
 
+
 @font-face {
     font-family: "jaffna";
     src: url('./fonts/PostNoBillsJaffna-ExtraBold.ttf');
@@ -43,6 +44,7 @@ body {
     min-width: 350px;
     padding-top: 4rem;
     color: $text-color;
+   
 }
 
 a {
@@ -128,7 +130,7 @@ h3 {
 }
 
 .error {
-    color: darkred;
+    color: red;
     margin: .3rem;
 }
 
@@ -169,5 +171,8 @@ h3 {
 @import './login_modals.scss';
 @import './my_bookings.scss';
 @import './rooms.scss';
+@import './img_modal.scss';
 @import './one_room.scss';
+@import './studio.scss';
+@import './contact.scss';
 @import './footer.scss';

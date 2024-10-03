@@ -38,9 +38,9 @@ export default function Footer() {
 
                     <div className="policy-links">
                         <ul>
-                            <li className="policy-link"><Link>Adatvéfelem</Link></li>
-                            <li className="policy-link"><Link>Impresszum</Link></li>
-                            <li className="policy-link"><Link>Cookiek kezelése</Link></li>
+                            <li className="policy-link"><Link to={'/adatkezelés'}>Adatvédelem</Link></li>
+                            <li className="policy-link"><Link to={'/adatkezelés'}>Impresszum</Link></li>
+                            <li className="policy-link"><Link to={'/adatkezelés'}>Cookiek kezelése</Link></li>
                         </ul>
                     </div>
 

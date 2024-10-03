@@ -1,7 +1,9 @@
 import React from 'react';
 import { IoMdClose } from "react-icons/io";
+import BodyScrollHidden from '../BodyScrollHidden';
 
 const AlertModal = ({ message, isVisible, onClose }) => {
+  BodyScrollHidden(isVisible)
   return (
     <div className={`modal ${isVisible ? 'show' : ''}`}>
       <div className="modal-content">
