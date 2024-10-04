@@ -30,22 +30,34 @@
     max-width: 1400px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     position: sticky;
     bottom: 0;
 }
 
-
-
 .menu {
     display: flex;
-    align-items: center;
-    list-style: none;
-    height: 100%;
+    flex-direction: column;
+    width: 500px;
+    position: absolute;
+    transition: right 0.5s;
+    right: -550px;
+    background: $bg;
+    top: 4rem;
+    text-align: center;
+    height: calc(100vh - 4rem);
+    border-left: 2px solid $main-color;
+    color: $main-color;
 }
+
+.menu.open {
+    right: 0;
+}
+
 
 .menu li {
     height: 100%;
+    width: 100%;
 }
 
 .links {
@@ -58,6 +70,9 @@
     align-items: center;
     height: 100%;
     text-transform: uppercase;
+    border-bottom: 0.2px solid $main-color-70;
+    justify-content: center;
+    width: 100%;
 
 }
 
@@ -67,71 +82,40 @@
     text-shadow: 3px 3px 3px rgb(0, 0, 0);
 }
 
+
 .hamb-icon {
-    display: none;
-    cursor: pointer;
+    display: block;
+    font-size: 2.5rem;
     color: $main-color;
+    cursor: pointer;
 }
 
-.icon {
-    font-size: 2rem;
-}
 
-@media (min-width: 768px) {
+
+
+
+
+@media (min-width: 992px) {
     .nav-wrapper {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
-
-    .logo {
-        font-size: 4rem
-    }
-
-    ;
-}
-
-@media (max-width: 992px) {
-    .menu {
-        display: flex;
-        flex-direction: column;
-        width: 500px;
-        position: absolute;
-        transition: 0.5s;
-        right: -550px;
-        background: $bg;
-        top: 4rem;
-        text-align: center;
-        height: calc(100vh - 4rem);
-        border-left: 2px solid $main-color;
-        color: $main-color;
-    }
-
-    .menu.open {
-        right: 0;
-    }
-
-    .menu li {
-        width: 100%;
-    }
-
     .links {
-        width: 100%;
-        justify-content: center;
-        color: $white-smoke;
-        border-bottom: 0.2px solid $main-color-70;
+        font-size: 1rem;
     }
 
-
+    .menu {
+        flex-direction: row;
+        position: static;
+        background: transparent;
+        height: 100%;
+        border: none;
+        width: fit-content;
+        transition: none;
+    }
 
     .hamb-icon {
-        display: block;
-        font-size: 2.5rem;
-    }
-}
+        display: none;
 
-@media screen and (max-width: 576px) {
-    .menu {
-        width: 100%;
-        border: none;
     }
 
 }

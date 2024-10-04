@@ -10,9 +10,9 @@
 
         img {
             width: 100%;
-            height: 450px;
+            height: 300px;
             object-fit: cover;
-            object-position: bottom;
+            object-position: center;
             filter: brightness(0.5)
         }
 
@@ -26,13 +26,20 @@
             left: 0;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-end;
-            padding: 0 0 8% 5%;
+            align-items: center;
+            justify-content: center;
+
         }
 
         h2 {
-            font-size: 3rem;
+            text-align: center;
+
+            font: {
+                size: 2rem;
+                family: "jaffna";
+            }
+
+            letter-spacing: .7rem;
             color: $main-color;
             text-shadow: 2px 2px 4px #000;
             margin-bottom: .8rem;
@@ -44,6 +51,7 @@
             text-shadow: 2px 2px 4px #000;
 
         }
+
     }
 
     .one-room-wrapper {
@@ -170,7 +178,18 @@
 }
 
 @media screen and (min-width: 576px) {
+    .one-room-banner {
+        .text-content {
+            h2 {
+                font-size: 4rem;
+            }
+            p {
+                font-size: 1.7rem;
+            }
+        }
+    }
     .gallery {
+
         .gallery-containre {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -178,7 +197,19 @@
 }
 
 @media screen and (min-width: 992px) {
+    .one-room-banner {
+        .text-content {
+            h2 {
+                font-size: 6rem;
+            }
+            p {
+                font-size: 2rem;
+            }
+        }
+    }
+
     .gallery {
+
         .gallery-containre {
             grid-template-columns: repeat(3, 1fr);
         }

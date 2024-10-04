@@ -1,5 +1,5 @@
 
-import price from './img/room1/1.webp'
+import price from './img/price.webp'
 
 
 
@@ -56,6 +56,18 @@ import a9 from './artists/9.webp';
 import a10 from './artists/10.webp';
 
 
+
+// events
+import event1 from './events/1.webp';
+import event2 from './events/2.webp';
+import event3 from './events/3.webp';
+import event4 from './events/4.webp';
+import event5 from './events/5.webp';
+import event6 from './events/6.webp';
+import event7 from './events/7.webp';
+
+
+
 export const img = {
     price,
     studio,
@@ -101,3 +113,14 @@ export const studioImg = {
 export const artists = {
     a1, a2, a3, a4, a5, a6, a7, a8, a9, a10
 }
+
+
+export const eventImg = {
+    event1,
+    event2,
+    event3,
+    event4,
+    event5,
+    event6,
+    event7
+} 

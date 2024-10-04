@@ -134,7 +134,7 @@ export default function Contact() {
                 </div>
 
                 <div className="map">
-                    <h3>Találj meg minket itt:</h3>
+                    <h3>Itt találsz minket:</h3>
                     <iframe
                         title="Proba Terem Map"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10770.197879349678!2d19.0534127!3d47.5025004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc582c37b91b%3A0x32d7e7b50a09d632!2sBudapest!5e0!3m2!1shu!2shu!4v1616390252823!5m2!1shu!2shu"

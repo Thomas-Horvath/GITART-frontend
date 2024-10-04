@@ -9,7 +9,7 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
-    
+
 
     return (
         <div className="nav">
@@ -21,11 +21,12 @@ function Navbar() {
                     <li><Link className='links' to="/stúdió" onClick={() => setIsOpen(false)}>Stúdió</Link></li>
                     <li><Link className='links' to="/termek" onClick={() => setIsOpen(false)}>Próbatermek</Link></li>
                     <li><Link className='links' to="/foglalás" onClick={() => setIsOpen(false)}>Foglalás</Link></li>
+                    <li><Link className='links' to="/események" onClick={() => setIsOpen(false)}>Események</Link></li>
                     <li><Link className='links' to="/kapcsolat" onClick={() => setIsOpen(false)}>Kapcsolat</Link></li>
-                    {/* <li><Link className='links' to="/signin" ><i className="fa-solid fa-user icon"></i></Link></li> */}
+
                 </ul>
 
-            
+
                 <i className="fa-solid fa-bars hamb-icon" onClick={toggleMenu}></i>
 
             </div>

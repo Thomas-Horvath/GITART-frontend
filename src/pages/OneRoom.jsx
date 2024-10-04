@@ -90,9 +90,9 @@ const OneRoom = () => {
 
 
 
-          <p><strong>Méret:</strong> {room.size}</p>
 
           <p><strong>Leírás:</strong> {room.description}</p>
+          <p><strong>Méret:</strong> {room.size}</p>
 
           <h3>Felszerelés</h3>
 
@@ -172,7 +172,7 @@ const OneRoom = () => {
 
 
       {/* Modal megjelenítése, ha nyitva van */}
-      {isModalOpen && <Modal imgSrc={selectedImage} onClose={closeModal} isOpen={isModalOpen}/>}
+      {isModalOpen && <Modal imgSrc={selectedImage} onClose={closeModal} isOpen={isModalOpen} />}
 
       <div className="back-btn">
 

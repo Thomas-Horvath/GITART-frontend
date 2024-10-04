@@ -6,7 +6,7 @@ import { studioImg } from '../assets/assets'; // A stúdió kép importálása
 import { img } from '../assets/assets'; // A stúdió kép importálása
 
 const Studio = () => {
-  const [studio, setStudio] = useState(null); // A stúdió adatai
+  const [studio, setStudio] = useState([]); // A stúdió adatai
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal állapot
   const [selectedImage, setSelectedImage] = useState(''); // Kiválasztott kép
@@ -20,7 +20,8 @@ const Studio = () => {
           throw new Error('Hiba történt a stúdió adatainak betöltésekor.');
         }
         const data = await response.json();
-        setStudio(data[0]); // A stúdió adatainak eltárolása
+        console.log(data)
+        setStudio(data[0].studio); // A stúdió adatainak eltárolása
       } catch (err) {
         setError(err.message);
       }
@@ -28,6 +29,9 @@ const Studio = () => {
 
     fetchStudioData();
   }, []);
+
+  console.log("adat", studio)
+
 
   // Modal megnyitása
   const openModal = (img) => {
@@ -48,6 +52,8 @@ const Studio = () => {
   if (!studio) {
     return <div>Betöltés...</div>;
   }
+
+  console.log(studio.equipment?.mixing_console)
 
   return (
     <div className="studio">
@@ -130,8 +136,7 @@ const Studio = () => {
 
 
         <div className="studio-details">
-          <h2>Az eszeközök</h2>
-
+          <h2>Az eszközök</h2>
 
           {/* Keverőpult */}
           {studio.equipment?.mixing_console && (
@@ -145,23 +150,35 @@ const Studio = () => {
           )}
 
           {/* Stúdió monitorok */}
-          {studio.equipment?.studio_monitors && (
+          {studio.equipment?.studio_monitors && studio.equipment.studio_monitors.length > 0 && (
             <div>
               <h3>Stúdió monitorok</h3>
-              <p><strong>Márka:</strong> {studio.equipment.studio_monitors.brand}</p>
-              <p><strong>Modell:</strong> {studio.equipment.studio_monitors.model}</p>
-              <p><strong>Teljesítmény:</strong> {studio.equipment.studio_monitors.power}</p>
-              <p>{studio.equipment.studio_monitors.description}</p>
+              <div className="card-group">
+                {studio.equipment.studio_monitors.map((monitor, index) => (
+                  <div key={index} className="card">
+                    <p><strong>Márka:</strong> {monitor.brand}</p>
+                    <p><strong>Modell:</strong> {monitor.model}</p>
+                    <p><strong>Teljesítmény:</strong> {monitor.power}</p>
+                    <p>{monitor.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {/* Mikrofonok */}
-          {studio.equipment?.microphones && (
+          {studio.equipment?.microphones && studio.equipment.microphones.length > 0 && (
             <div>
               <h3>Mikrofonok</h3>
-              <p><strong>Márka:</strong> {studio.equipment.microphones.brand}</p>
-              <p><strong>Modellek:</strong> {studio.equipment.microphones.models.join(', ')}</p>
-              <p>{studio.equipment.microphones.description}</p>
+              <div className="card-group">
+                {studio.equipment.microphones.map((microphone, index) => (
+                  <div key={index} className="card">
+                    <p><strong>Márka:</strong> {microphone.brand}</p>
+                    <p><strong>Modellek:</strong> {microphone.models.join(', ')}</p>
+                    <p>{microphone.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
@@ -185,7 +202,29 @@ const Studio = () => {
               <p>{studio.equipment.daw.description}</p>
             </div>
           )}
+
+          {/* Hangszerek */}
+          {studio.instruments && studio.instruments.length > 0 && (
+            <div>
+              <h3>Hangszerek</h3>
+              <div className="card-group">
+                {studio.instruments.map((instrument, index) => (
+                  <div key={index} className="card">
+                    <h4>{instrument.name}</h4>
+                    <p><strong>Típus:</strong> {instrument.type}</p>
+                    <p>{instrument.description}</p>
+                    {instrument.features && instrument.features.length > 0 && (
+                      <p><strong>Jellemzők:</strong> {instrument.features.join(', ')}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
+
+
+
       </div>
 
       <div className="studio-gallery">
