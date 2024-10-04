@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { artists } from '../../assets/assets';
 
 
@@ -44,16 +44,17 @@ const Friends = () => {
 
       </div>
       <Swiper
-        modules={[Autoplay]}
+        modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={0} // Képek közötti tér
         slidesPerView={'auto'}
         loop={true} // Kép forgatás
         autoplay={{ delay: 2000 }} // Automatikus görgetés 2 másodpercenként
-        pagination={{ clickable: true }} // Oldalszámok megjelenítése
-        navigation
+        pagination={{ clickable: false }} // Oldalszámok megjelenítése
+        navigation={false}
+
       >
         {images.map((src, i) => (
-          <SwiperSlide key={i} style={{ width: '200px' }}>
+          <SwiperSlide key={i} style={{ width: '220px' }}>
             <img src={src} alt={`Barátaink ${i + 1}`} />
           </SwiperSlide>
         ))}

@@ -465,8 +465,8 @@ h3 {
 }
 .friends .swiper {
   width: 100%;
-  overflow: hidden;
   margin-top: 2rem;
+  overflow: clip;
 }
 .friends .swiper .swiper-wrapper {
   display: flex;
@@ -475,12 +475,12 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   flex-shrink: 0;
 }
 .friends .swiper .swiper-slide img {
-  width: 200px;
+  width: 220px;
   height: 100%;
   object-fit: cover;
   background: #555;

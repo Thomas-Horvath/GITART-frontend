@@ -51,8 +51,9 @@
 
     .swiper {
         width: 100%; // Teljes szélesség
-        overflow: hidden; // Elrejti a túlcsorduló képeket
+
         margin-top: 2rem;
+        overflow: clip;
 
         .swiper-wrapper {
             display: flex;
@@ -62,12 +63,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             flex-shrink: 0; // Megakadályozza, hogy a slide-ok zsugorodjanak
 
             img {
-                width: 200px;
+                width: 220px;
                 height: 100%;
                 object-fit: cover;
                 background: #555;
