@@ -79,13 +79,9 @@
 
             .studio-a-content-1 {
                 grid-area: content1;
-                // padding: 2rem 2rem 2rem 0;
-
             }
 
             .studio-a-content-2 {
-
-                // padding: 2rem 0 2rem 2rem;
                 grid-area: content2;
             }
 
@@ -144,7 +140,6 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 20px;
-                /* Kártyák közötti távolság */
             }
 
             .service-card {

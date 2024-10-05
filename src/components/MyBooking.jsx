@@ -53,39 +53,41 @@ const MyBooking = () => {
     fetchBookings();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className='loading'>Töltés...</div>;
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="page-container">
-      <div className="my-bookings-content-wrapper w1400">
+    <div className="page-container my-booking-page">
+      <div className="my-bookings-content-wrapper">
         <h2>Saját Foglalásaim</h2>
-        <table className="booking-table">
-          <thead>
-            <tr>
-              <th>Foglalás Neve</th>
-              <th>Terem</th>
-              <th>Dátum</th>
-              <th>Órák</th>
-            </tr>
-          </thead>
-          <tbody>
-            {bookings.length === 0 ? (
+        <div className="booking-table-wrapper">
+          <table className="booking-table">
+            <thead>
               <tr>
-                <td colSpan="4">Nincsenek foglalásaid.</td>
+                <th>Foglalás Neve</th>
+                <th>Terem</th>
+                <th>Dátum</th>
+                <th>Órák</th>
               </tr>
-            ) : (
-              bookings.map((booking) => (
-                <tr key={booking._id}>
-                  <td>{booking.Name} - ({booking.BookingName})</td>
-                  <td>{booking.Room}</td>
-                  <td>{new Date(booking.BookingDate).toLocaleDateString()}</td>
-                  <td>{booking.Hours.join(' - ')}</td>
+            </thead>
+            <tbody>
+              {bookings.length === 0 ? (
+                <tr>
+                  <td colSpan="4">Nincsenek foglalásaid.</td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                bookings.map((booking) => (
+                  <tr key={booking._id}>
+                    <td>{booking.Name} - ({booking.BookingName})</td>
+                    <td>{booking.Room}</td>
+                    <td>{new Date(booking.BookingDate).toLocaleDateString()}</td>
+                    <td>{booking.Hours.join(' - ')}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
         <BackBtn />
       </div>
 

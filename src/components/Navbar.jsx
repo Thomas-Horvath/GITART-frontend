@@ -8,13 +8,16 @@ function Navbar() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
+    const handleClick = () => {
+        window.scrollTo(0, 0);
+        setIsOpen(false);
+    }
 
 
     return (
         <div className="nav">
             <div className="nav-wrapper">
-                <Link className='logo-link' to='/'><h2 className="logo">GitArt</h2></Link>
+                <Link className='logo-link' to='/' onClick={handleClick}><h2 className="logo">GitArt</h2></Link>
 
                 <ul className={`menu ${isOpen ? 'open' : ''}`}>
                     <li><Link className='links' to="/" onClick={() => setIsOpen(false)}>Kezdőlap</Link></li>

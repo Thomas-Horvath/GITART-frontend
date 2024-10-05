@@ -38,7 +38,8 @@
 .menu {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    // width: 500px;
+    width: 100%;
     position: absolute;
     transition: right 0.5s;
     right: -550px;
@@ -46,7 +47,7 @@
     top: 4rem;
     text-align: center;
     height: calc(100vh - 4rem);
-    border-left: 2px solid $main-color;
+    // border-left: 2px solid $main-color;
     color: $main-color;
 }
 
@@ -90,15 +91,19 @@
     cursor: pointer;
 }
 
+@media (min-width: 576px) {
+    .menu {
+        width: 500px;
+        border-left: 2px solid $main-color;
+    }
 
-
-
-
+}
 
 @media (min-width: 992px) {
     .nav-wrapper {
         padding: 0 1rem;
     }
+
     .links {
         font-size: 1rem;
     }

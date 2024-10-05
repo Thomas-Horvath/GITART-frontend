@@ -10,7 +10,7 @@ export default function Contact() {
     });
 
     const [formStatus, setFormStatus] = useState('');
-    const [errors, setErrors] = useState({}); // Hibák tárolása
+    const [errors, setErrors] = useState({}); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -48,7 +48,11 @@ export default function Contact() {
         e.preventDefault();
 
         if (validateForm()) {
+
+
             // itt lehet az api hívás
+
+            
             setFormStatus('Az üzenet sikeresen elküldve!');
             setTimeout(() => {
                 setFormStatus('');

@@ -1,7 +1,7 @@
 {
   "homepage": "https://thomas-horvath.github.io/GITART-frontend",
-  "name": "rehearsal_room_react_frontend",
-  "version": "0.1.0",
+  "name": "gitart_rehearsal_room_and_studio",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -27,7 +27,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "sass": "sass --no-source-map --watch src/scss/index.scss src/index.css"
+    "sass": "sass --no-source-map --watch src/scss/index.scss src/index.css",
+    "sass-prod": "sass --no-source-map --style=compressed src/scss/index.scss src/index.css"
   },
   "eslintConfig": {
     "extends": [

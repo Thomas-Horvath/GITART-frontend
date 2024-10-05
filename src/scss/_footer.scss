@@ -60,7 +60,7 @@
         ul {
 
             li {
-                display: flex; // Alkalmazd a flexbox-ot
+                display: flex; 
                 width: 100%;
 
 
@@ -93,7 +93,6 @@
 
 @media screen and (min-width: 576px) {
     .footer {
-
         .footer-container {
             grid-template-columns: repeat(2, 270px);
             gap: 1rem;
@@ -110,7 +109,6 @@
 
 @media screen and (min-width: 992px) {
     .footer {
-
         .footer-container {
             grid-template-columns: repeat(3, 310px);
 

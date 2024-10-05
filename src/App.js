@@ -13,6 +13,7 @@ import MyBooking from './components/MyBooking.jsx';
 import Events from './pages/Events.jsx';
 import OneRoom from './pages/OneRoom.jsx';
 import Policy from './pages/Policy.jsx';
+import Cookie from './components/Cookie.jsx';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path='/események' element={<Events text="események" />} />
           <Route path='/adatkezelés/:category' element={<Policy />} />
         </Routes>
+        <Cookie />
         <Footer />
       </div>
     </Router>

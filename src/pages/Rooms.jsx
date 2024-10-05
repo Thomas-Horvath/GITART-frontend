@@ -38,7 +38,7 @@ export default function Rooms() {
     }
 
     if (!room) {
-        return <div>Betöltés...</div>;
+        return <div className='loading'>Töltés...</div>;
     }
 
     return (

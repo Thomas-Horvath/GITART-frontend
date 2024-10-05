@@ -11,14 +11,14 @@ import InfoModal from '../Login/Info'; // Az InfoModal
 
 const WeeklyCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [bookings, setBookings] = useState({}); // Minden foglalás a dátumhoz lesz kötve
-  const [selectedHours, setSelectedHours] = useState([]); // Kijelölt órák tárolása
-  const [bookingName, setBookingName] = useState(''); // Foglaló neve
-  const [name, setName] = useState(''); // Foglaló neve
-  const [isModalVisible, setIsModalVisible] = useState(false); // Modal láthatóság állapot
-  const [alertMessage, setAlertMessage] = useState(''); // Figyelmeztető üzenet állapota
-  const [isAlertVisible, setIsAlertVisible] = useState(false); // Figyelmeztető modal láthatóság
-  const [successMessage, setSuccessMessage] = useState(''); // Sikeres foglalás üzenet állapota
+  const [bookings, setBookings] = useState({}); 
+  const [selectedHours, setSelectedHours] = useState([]); 
+  const [bookingName, setBookingName] = useState(''); 
+  const [name, setName] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(''); 
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [profile, setProfile] = useState({});
   const navigate = useNavigate();
 

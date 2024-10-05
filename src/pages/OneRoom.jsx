@@ -6,11 +6,11 @@ import { GoZoomIn } from "react-icons/go";
 import Modal from '../components/Rooms/ImgModal';
 
 const OneRoom = () => {
-  const { id } = useParams(); // A terem ID-je a paraméterekből
-  const [rooms, setRooms] = useState([]); // Több terem adatait tároljuk itt
+  const { id } = useParams(); 
+  const [rooms, setRooms] = useState([]);
   const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal állapot
-  const [selectedImage, setSelectedImage] = useState(''); // Nagyított kép
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [selectedImage, setSelectedImage] = useState('');
 
   useEffect(() => {
     const fetchRoomData = async () => {
@@ -20,14 +20,15 @@ const OneRoom = () => {
           throw new Error('Hiba történt a terem adatainak betöltésekor.');
         }
         const data = await response.json();
-        setRooms(data); // Az összes terem adatát eltároljuk
+        setRooms(data); 
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchRoomData();
-  }, []); // A fetch nem függ a terem ID-jától
+  }, []);
+
 
   // Szűrés az összes terem adatai közül a megfelelő ID-jú teremre
   const room = rooms.find((r) => r.id === parseInt(id));
@@ -59,13 +60,13 @@ const OneRoom = () => {
 
 
 
-  // Modal megnyitása a kiválasztott képpel
+
   const openModal = (img) => {
     setSelectedImage(img);
     setIsModalOpen(true);
   };
 
-  // Modal bezárása
+
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedImage('');

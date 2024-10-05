@@ -1,0 +1,44 @@
+.cookie-notification {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 300px;
+    height: 320px;
+    background-color: $bg-light;
+    color: $white-smoke;
+    font-weight: bold;
+    letter-spacing: .2rem;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid $main-color;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .cookie-notification p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4rem;
+  }
+  .cookie-btn {
+    width: fit-content;
+    margin:1rem  0;
+    cursor: pointer;
+    border: 2px solid $main-color;
+
+  }
+  .cookie-btn:hover {
+    color: $white;
+    border: 2px solid $white;
+  }
+
+  .cookie-btn-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+   
+  }

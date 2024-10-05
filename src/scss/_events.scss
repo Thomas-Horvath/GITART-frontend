@@ -8,13 +8,15 @@
     padding-bottom: 4rem;
 
     .heading {
-h2 {
-    margin-bottom: 2rem;
-}
+        h2 {
+            margin-bottom: 2rem;
+        }
+
         p {
             margin-bottom: .5rem;
         }
     }
+
     h2 {
         margin-top: 2rem;
         text-align: center;
@@ -29,6 +31,7 @@ h2 {
         padding: 2rem .5rem;
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
         width: 100%;
+
         &:hover .event-image img {
             filter: grayscale(0);
         }
@@ -61,10 +64,10 @@ h2 {
                 object-fit: cover;
                 transition: filter .3s;
                 filter: grayscale(1);
-               
+
 
             }
-          
+
 
             .date-box {
                 position: absolute;

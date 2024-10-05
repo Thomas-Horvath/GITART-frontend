@@ -50,7 +50,7 @@
     }
 
     .swiper {
-        width: 100%; // Teljes szélesség
+        width: 100%; 
 
         margin-top: 2rem;
         overflow: clip;
@@ -65,7 +65,7 @@
             align-items: center;
             width: 220px;
             height: 220px;
-            flex-shrink: 0; // Megakadályozza, hogy a slide-ok zsugorodjanak
+            flex-shrink: 0; 
 
             img {
                 width: 220px;

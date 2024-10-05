@@ -10,11 +10,13 @@ const LoginModal = ({ onClose, isVisible }) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [loginFormData, setLoginFormData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
+    const [fetchErrors, setFetchErrors] = useState({});
 
 
     useEffect(() => {
         if (!isVisible) {
             setErrors({})
+            setFetchErrors({})
         }
     }, [isVisible]);
 
@@ -37,6 +39,8 @@ const LoginModal = ({ onClose, isVisible }) => {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
+        } else {
+            setErrors({});
         }
 
         try {
@@ -49,13 +53,14 @@ const LoginModal = ({ onClose, isVisible }) => {
             if (response.ok) {
                 const { token } = await response.json();
                 sessionStorage.setItem('token', token);
+                setErrors({})
                 onClose(); //* Bezárja a modalt sikeres bejelentkezés után
             } else {
                 const { message } = await response.json();
-                setErrors({ login: message || 'Hiba történt a bejelentkezés során.' });
+                setFetchErrors({ login: message || 'Hiba történt a bejelentkezés során.' });
             }
         } catch (error) {
-            setErrors({ login: 'Nem sikerült kapcsolatba lépni a szerverrel.' });
+            setFetchErrors({ login: 'Nem sikerült kapcsolatba lépni a szerverrel.' });
         }
     };
 
@@ -94,6 +99,7 @@ const LoginModal = ({ onClose, isVisible }) => {
                         </span>
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
+                    {fetchErrors.login && <p className="error">{fetchErrors.login}</p>}
                     <button className='btn' type="submit">Bejelentkezés</button>
                 </form>
             </div>

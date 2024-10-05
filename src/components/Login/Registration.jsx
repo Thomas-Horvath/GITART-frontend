@@ -57,8 +57,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
         if (!formData.lastName) newErrors.lastName = 'Kötelező kitölteni.';
 
 
-        // Validate phone number
-        const phoneNumber = parsePhoneNumberFromString(formData.phone, 'HU'); // Assume 'HU' as the default country
+       
+        const phoneNumber = parsePhoneNumberFromString(formData.phone, 'HU'); 
         if (!phoneNumber || !phoneNumber.isValid()) {
             newErrors.phone = 'Kérjük, adjon meg egy érvényes telefonszámot.';
         }

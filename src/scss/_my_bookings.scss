@@ -1,13 +1,22 @@
+.page-container {
+    &.my-booking-page {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
 
 .my-bookings-content-wrapper {
-    padding: 30px;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    background-color: #222; 
+    background-color: #222;
     width: 100%;
-    min-height: 40rem;
+    min-height: 100%;
 
     h2 {
         margin-bottom: 30px;
@@ -16,34 +25,42 @@
         text-align: center;
     }
 
-    .booking-table {
+    .booking-table-wrapper {
         width: 100%;
-        border-collapse: collapse;
+        overflow-x: auto; // Vízszintes scrollozás engedélyezése
 
-        th, td {
-            border: 1px solid #777; // Sötétebb keret
-            padding: 12px;
-            text-align: left;
-            font-size: 16px;
-            color: #ffffff; // Fehér szöveg
-        }
+        .booking-table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
 
-        th {
-            background-color: $main-color; // Kék háttér a fejlécnek
-            color: $bg; // Fehér szöveg
-        }
 
-        tr {
-            background-color: #333; // Sötét háttér a soroknak
-        }
+            th,
+            td {
+                border: 1px solid #777; 
+                padding: 12px;
+                text-align: left;
+                font-size: 16px;
+                color: #ffffff; 
+            }
 
-        tr:nth-child(even) {
-            background-color: #444; // Kicsit világosabb sötét a páros soroknak
-        }
+            th {
+                background-color: $main-color; 
+                color: $bg; 
+            }
 
-        tr:hover {
-            background-color: #555; // Hover szín
-            color: #ffffff; // Fehér szöveg hover állapotban
+            tr {
+                background-color: #333; 
+            }
+
+            tr:nth-child(even) {
+                background-color: #444; 
+            }
+
+            tr:hover {
+                background-color: #555; 
+                color: #ffffff; 
+            }
         }
     }
 

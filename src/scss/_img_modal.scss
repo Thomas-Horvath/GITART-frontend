@@ -15,13 +15,13 @@
     
     .modal-content {
    
-        max-width: 80vw; /* Maximális szélesség */
-        max-height: 80vh; /* Maximális magasság */
+        max-width: 80vw; 
+        max-height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 10px;
-        background-color: $white-smoke; /* Háttérszín a kép mögött */
+        background-color: $white-smoke; 
       }
     
       .modal-content img {
@@ -30,7 +30,7 @@
         max-width: 90vw;
         max-height: 90vh;
         border-radius: 10px;
-        object-fit: contain; /* Megtartja a kép arányait */
+        object-fit: contain; 
         border: 3px solid $main-color;
       }
     

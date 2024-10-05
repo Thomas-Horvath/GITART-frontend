@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import BackBtn from '../components/BackBtn'; // Vissza gomb komponens
-import Modal from '../components/Rooms/ImgModal'; // Képgaléria modal komponens
-import { GoZoomIn } from "react-icons/go"; // Nagyítás ikon
-import { studioImg } from '../assets/assets'; // A stúdió kép importálása
-import { img } from '../assets/assets'; // A stúdió kép importálása
+import BackBtn from '../components/BackBtn'; 
+import Modal from '../components/Rooms/ImgModal'; 
+import { GoZoomIn } from "react-icons/go";
+import { studioImg } from '../assets/assets';
+import { img } from '../assets/assets'; 
 
 const Studio = () => {
-  const [studio, setStudio] = useState([]); // A stúdió adatai
+  const [studio, setStudio] = useState([]); 
   const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal állapot
-  const [selectedImage, setSelectedImage] = useState(''); // Kiválasztott kép
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [selectedImage, setSelectedImage] = useState(''); 
 
-  // Fetch kérés a stúdió adataihoz
+  
   useEffect(() => {
     const fetchStudioData = async () => {
       try {
@@ -20,8 +20,8 @@ const Studio = () => {
           throw new Error('Hiba történt a stúdió adatainak betöltésekor.');
         }
         const data = await response.json();
-        console.log(data)
-        setStudio(data[0].studio); // A stúdió adatainak eltárolása
+       
+        setStudio(data[0].studio); 
       } catch (err) {
         setError(err.message);
       }
@@ -30,7 +30,6 @@ const Studio = () => {
     fetchStudioData();
   }, []);
 
-  console.log("adat", studio)
 
 
   // Modal megnyitása
@@ -50,10 +49,10 @@ const Studio = () => {
   }
 
   if (!studio) {
-    return <div>Betöltés...</div>;
+    return <div className='loading'>Töltés...</div>;
   }
 
-  console.log(studio.equipment?.mixing_console)
+ 
 
   return (
     <div className="studio">
