@@ -3,6 +3,7 @@
 ## Weboldal: [GitArt - Próbaterme és Stúdió ](https://thomas-horvath.github.io/GITART-frontend/)
 
 
+
 Teszt felhasználó:
 
     - email cím: testuser@gmail.com
@@ -56,3 +57,5 @@ A próbatermek foglalását egy online fogalási rendszer megépítésével val�
  - pixabay : https://pixabay.com/hu/
  
  A honlap szöveges tartalmai kitalációk és az OpenIA ChatGpt-vel generáltak. 
+
+ ![preview](preview.png)
