@@ -189,7 +189,7 @@ const WeeklyCalendar = () => {
 
     if (selectedHours.length > 0) {
       setIsModalVisible(true);
-      setName(`${profile.FirstName || ''} ${profile.LastName || ''}`);
+      setName(`${profile.LastName || ''} ${profile.FirstName || ''} `);
       setBookingName(profile.BookingName || '');
     }
   };
