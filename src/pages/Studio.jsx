@@ -4,6 +4,7 @@ import Modal from '../components/Rooms/ImgModal';
 import { GoZoomIn } from "react-icons/go";
 import { studioImg } from '../assets/assets';
 import { img } from '../assets/assets'; 
+import { FaMusic, FaBullhorn , FaPencilAlt , FaVolumeUp } from "react-icons/fa";
 
 const Studio = () => {
   const [studio, setStudio] = useState([]); 
@@ -106,25 +107,25 @@ const Studio = () => {
 
           <div className="service-cards">
             <div className="service-card">
-              <div className="icon"><i className="fas fa-music"></i></div> {/* React icon */}
+              <div className="icon"><FaMusic /></div> {/* React icon */}
               <h4>Videóklip Készítés</h4>
               <p>Készítsd el saját videóklippedet! A stúdiózás során vagy külső helyszínen is rögzítjük a zenekarod vagy szólistád felvételeit.</p>
             </div>
 
             <div className="service-card">
-              <div className="icon"><i className="fas fa-bullhorn"></i></div> {/* React icon */}
+              <div className="icon"><FaBullhorn /></div> {/* React icon */}
               <h4>Reklámkészítés</h4>
               <p>Reklámozni szeretnéd a cégedet? Készíts velünk rádióreklámot! Csodás férfi és női hangunkkal segítünk a szignálod létrehozásában.</p>
             </div>
 
             <div className="service-card">
-              <div className="icon"><i className="fas fa-pencil-alt"></i></div> {/* React icon */}
+              <div className="icon"><FaPencilAlt /></div> {/* React icon */}
               <h4>Dalszerzés és Zenei Producer</h4>
               <p>Ha van egy dalötleted vagy szeretnél saját dalokat, segítünk a dalszöveg, dallam írásában és hangszerelésében is.</p>
             </div>
 
             <div className="service-card">
-              <div className="icon"><i className="fas fa-volume-up"></i></div> {/* React icon */}
+              <div className="icon"><FaVolumeUp /></div> {/* React icon */}
               <h4>Mixing & Mastering</h4>
               <p>Ha a saját felvételeid nem úgy szólnak, ahogy szeretnéd, hozd el hozzánk! Keverésben és masterelésben is a legjobbat nyújtjuk, hogy a legjobb hangzást érhesd el.</p>
             </div>
