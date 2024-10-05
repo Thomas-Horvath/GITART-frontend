@@ -81,7 +81,7 @@ const MyBooking = () => {
                     <td>{booking.Name} - ({booking.BookingName})</td>
                     <td>{booking.Room}</td>
                     <td>{new Date(booking.BookingDate).toLocaleDateString()}</td>
-                    <td>{booking.Hours.join(' - ')}</td>
+                    <td>{`${Math.min(...booking.Hours)} - ${Math.max(...booking.Hours ) + 1} `}</td>
                   </tr>
                 ))
               )}
