@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/GITART-frontend/static/css/main.fd525528.css",
+    "main.css": "/GITART-frontend/static/css/main.0e5bd093.css",
     "main.js": "/GITART-frontend/static/js/main.9bdd4c18.js",
     "static/media/6.webp": "/GITART-frontend/static/media/6.f2d86d58d45411499e33.webp",
     "static/media/banner.webp": "/GITART-frontend/static/media/banner.2744d9fe69d8d63dfcc1.webp",
@@ -20,11 +20,11 @@
     "static/media/10.webp": "/GITART-frontend/static/media/10.62d03be2c2aaa2d92653.webp",
     "static/media/9.webp": "/GITART-frontend/static/media/9.aa1b70759e50485992fb.webp",
     "index.html": "/GITART-frontend/index.html",
-    "main.fd525528.css.map": "/GITART-frontend/static/css/main.fd525528.css.map",
+    "main.0e5bd093.css.map": "/GITART-frontend/static/css/main.0e5bd093.css.map",
     "main.9bdd4c18.js.map": "/GITART-frontend/static/js/main.9bdd4c18.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd525528.css",
+    "static/css/main.0e5bd093.css",
     "static/js/main.9bdd4c18.js"
   ]
 }
