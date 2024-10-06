@@ -38,7 +38,6 @@
 .menu {
     display: flex;
     flex-direction: column;
-    // width: 500px;
     width: 100%;
     position: absolute;
     transition: right 0.5s;
@@ -47,7 +46,6 @@
     top: 4rem;
     text-align: center;
     height: calc(100vh - 4rem);
-    // border-left: 2px solid $main-color;
     color: $main-color;
 }
 
@@ -89,6 +87,11 @@
     font-size: 2.5rem;
     color: $main-color;
     cursor: pointer;
+    transition: transform .1s ease-in;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 @media (min-width: 576px) {

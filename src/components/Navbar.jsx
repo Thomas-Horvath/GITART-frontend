@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBars } from "react-icons/fa6";
 
 
 function Navbar() {
@@ -29,8 +30,8 @@ function Navbar() {
 
                 </ul>
 
-
-                <i className="fa-solid fa-bars hamb-icon" onClick={toggleMenu}></i>
+                <FaBars className="hamb-icon" onClick={toggleMenu}/>
+              
 
             </div>
         </div>
