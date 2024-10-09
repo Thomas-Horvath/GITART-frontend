@@ -11,7 +11,7 @@ import Contact from './pages/Contact';
 import ScrollTop from './components/ScrollToTop.jsx';
 import MyBooking from './components/MyBooking.jsx';
 import Events from './pages/Events.jsx';
-import OneRoom from './pages/OneRoom.jsx';
+import OneRoom from './pages/OneRoom.jsx'; 
 import Policy from './pages/Policy.jsx';
 import Cookie from './components/Cookie.jsx';
 

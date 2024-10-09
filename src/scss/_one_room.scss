@@ -119,8 +119,8 @@
             gap: .5rem;
 
             display: grid;
-            grid-template-columns: repeat(1fr);
-            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: 1fr;
+
 
 
             .img-wrapper {
@@ -177,40 +177,47 @@
 }
 
 @media screen and (min-width: 576px) {
-    .one-room-banner {
-        .text-content {
-            h2 {
-                font-size: 4rem;
-            }
-            p {
-                font-size: 1.7rem;
+    .one-room {
+        .one-room-banner {
+            .text-content {
+                h2 {
+                    font-size: 4rem;
+                }
+
+                p {
+                    font-size: 1.7rem;
+                }
             }
         }
-    }
-    .gallery {
 
-        .gallery-containre {
-            grid-template-columns: repeat(2, 1fr);
+        .gallery {
+
+            .gallery-containre {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     }
 }
 
 @media screen and (min-width: 992px) {
-    .one-room-banner {
-        .text-content {
-            h2 {
-                font-size: 6rem;
-            }
-            p {
-                font-size: 2rem;
+    .one-room {
+        .one-room-banner {
+            .text-content {
+                h2 {
+                    font-size: 6rem;
+                }
+
+                p {
+                    font-size: 2rem;
+                }
             }
         }
-    }
 
-    .gallery {
+        .gallery {
 
-        .gallery-containre {
-            grid-template-columns: repeat(3, 1fr);
+            .gallery-containre {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     }
 }
