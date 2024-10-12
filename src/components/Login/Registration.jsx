@@ -57,13 +57,29 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
         if (!formData.lastName) newErrors.lastName = 'Kötelező kitölteni.';
 
 
-       
-        const phoneNumber = parsePhoneNumberFromString(formData.phone, 'HU'); 
+        // telefonszám ellenőrzése
+        const phoneNumber = parsePhoneNumberFromString(formData.phone, 'HU');
         if (!phoneNumber || !phoneNumber.isValid()) {
             newErrors.phone = 'Kérjük, adjon meg egy érvényes telefonszámot.';
         }
-        if (!formData.email) newErrors.email = 'Kötelező kitölteni.';
-        if (!formData.password) newErrors.password = 'Kötelező kitölteni.';
+
+
+        // email ellenőrzése
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Egyszerű email reguláris kifejezés
+        if (!formData.email) {
+            newErrors.email = 'Kötelező kitölteni.';
+        } else if (!emailRegex.test(formData.email)) {
+            newErrors.email = 'Kérjük, adjon meg egy érvényes email címet.';
+        }
+
+
+        // Jelszó ellenőrzés
+        if (!formData.password) {
+            newErrors.password = 'Kötelező kitölteni.';
+        } else if (formData.password.length < 6) {
+            newErrors.password = 'A jelszónak legalább 6 karakter hosszúnak kell lennie.';
+        }
+
         if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'A két jelszónak egyeznie kell.';
         if (!formData.dataPrivacy) newErrors.dataPrivacy = 'Az adatvédelmi tájékoztató elfogadása kötelező.';
         return newErrors;
@@ -83,18 +99,18 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
 
             const phoneNumber = parsePhoneNumberFromString(formData.phone, 'HU');
             const formattedPhone = phoneNumber ? phoneNumber.formatInternational() : '';
-
+            const email = formData.email.toLocaleLowerCase();
 
             const requestData = {
                 Password: formData.password,
                 BookingName: formData.bookingName,
                 LastName: formData.lastName,
                 FirstName: formData.firstName,
-                EmailAddress: formData.email,
+                EmailAddress: email,
                 PhoneNumber: formattedPhone,
                 PolicyAccept: formData.dataPrivacy
             };
-     
+
 
             try {
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
@@ -132,7 +148,7 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
             })
             setTimeout(() => {
                 setIsRegisterModalVisible(false)
-            }, 2000);
+            }, 5000);
 
             setErrors({});
         }
@@ -146,7 +162,6 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                     <IoMdClose />
                 </p>
 
-
                 <form onSubmit={handleSubmit}>
                     <h2>Regisztráció</h2>
                     <div className="input-group">
@@ -158,8 +173,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                             value={formData.firstName}
                             onChange={handleChange}
                         />
-                        {errors.firstName && <p className="error">{errors.firstName}</p> }
                     </div>
+                    {errors.firstName && <p className="error">{errors.firstName}</p>}
                     <div className="input-group">
                         <label htmlFor="lastName">Vezetéknév:</label>
                         <input
@@ -169,8 +184,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                             value={formData.lastName}
                             onChange={handleChange}
                         />
-                        {errors.lastName && <p className="error">{errors.lastName}</p>}
                     </div>
+                    {errors.lastName && <p className="error">{errors.lastName}</p>}
                     <div className="input-group">
                         <label htmlFor="bookingName">Foglalási név:</label>
                         <input
@@ -180,8 +195,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                             value={formData.bookingName}
                             onChange={handleChange}
                         />
-                        {errors.bookingName && <p className="error">{errors.bookingName}</p>}
                     </div>
+                    {errors.bookingName && <p className="error">{errors.bookingName}</p>}
                     <div className="input-group">
                         <label htmlFor="phone">Telefonszám:</label>
                         <input
@@ -191,19 +206,19 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                             value={formData.phone}
                             onChange={handleChange}
                         />
-                        {errors.phone && <p className="error">{errors.phone}</p>}
                     </div>
+                    {errors.phone && <p className="error">{errors.phone}</p>}
                     <div className="input-group">
                         <label htmlFor="email">Email cím:</label>
                         <input
                             id="email"
-                            type="email"
+                            type="text"
                             placeholder="Írd be az email címed"
                             value={formData.email}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
                     </div>
+                    {errors.email && <p className="error">{errors.email}</p>}
                     <div className="input-group">
                         <label htmlFor="password">Jelszó:</label>
                         <input
@@ -216,8 +231,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                         <span onClick={() => setPasswordVisible(!passwordVisible)}>
                             {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                         </span>
-                        {errors.password && <p className="error">{errors.password}</p>}
                     </div>
+                    {errors.password && <p className="error">{errors.password}</p>}
                     <div className="input-group">
                         <label htmlFor="confirmPassword">Jelszó megerősítése:</label>
                         <input
@@ -230,8 +245,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                         <span onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}>
                             {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
                         </span>
-                        {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                     </div>
+                    {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                     <div className="input-group">
                         <input type="checkbox" id='dataPrivacy' checked={formData.dataPrivacy} onChange={handleChange} />
                         <label htmlFor="dataPrivacy">Elfogadom az adatvédelmi tájékoztatót.</label>

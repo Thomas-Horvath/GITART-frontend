@@ -95,7 +95,11 @@
             }
 
             .success {
-                color: darkgreen;
+                color: green;
+                margin: .5rem 0;
+                font-size: 1rem;
+                font-weight: bold;
+                letter-spacing: .15rem;
             }
         }
 

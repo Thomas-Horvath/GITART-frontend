@@ -11,12 +11,12 @@ import InfoModal from '../Login/Info'; // Az InfoModal
 
 const WeeklyCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [bookings, setBookings] = useState({}); 
-  const [selectedHours, setSelectedHours] = useState([]); 
-  const [bookingName, setBookingName] = useState(''); 
+  const [bookings, setBookings] = useState({});
+  const [selectedHours, setSelectedHours] = useState([]);
+  const [bookingName, setBookingName] = useState('');
   const [name, setName] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [alertMessage, setAlertMessage] = useState(''); 
+  const [alertMessage, setAlertMessage] = useState('');
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [profile, setProfile] = useState({});
@@ -59,11 +59,11 @@ const WeeklyCalendar = () => {
             'Authorization': `Bearer ${token}`
           },
         });
-  
+
         if (!profileResponse.ok) {
           throw new Error('Nem sikerült lekérni a profil adatokat');
         }
-  
+
         const profileData = await profileResponse.json();
         setProfile(profileData);
       } catch (error) {
@@ -72,21 +72,21 @@ const WeeklyCalendar = () => {
         setIsAlertVisible(true);
       }
     };
-  
+
     const fetchBookings = async () => {
       try {
         const bookingsResponse = await fetch(`${process.env.REACT_APP_API_URL}/bookings`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
-  
+
         if (!bookingsResponse.ok) {
           throw new Error('Nem sikerült lekérni a foglalásokat');
         }
-  
+
         const data = await bookingsResponse.json();
         const formattedBookings = {};
-  
+
         data.forEach((booking) => {
           const bookingDate = new Date(booking.BookingDate).toISOString().split('T')[0];
           booking.Hours.forEach((hour) => {
@@ -94,7 +94,7 @@ const WeeklyCalendar = () => {
             formattedBookings[bookingKey] = true;
           });
         });
-  
+
         setBookings(formattedBookings);
       } catch (error) {
         console.error('Error fetching bookings:', error);
@@ -102,7 +102,7 @@ const WeeklyCalendar = () => {
         setIsAlertVisible(true);
       }
     };
-  
+
     // Profil adatok lekérdezése, ha be vagyunk jelentkezve
     if (isLoggedIn) {
       fetchProfile();
@@ -110,7 +110,7 @@ const WeeklyCalendar = () => {
     // Foglalások lekérdezése függetlenül a bejelentkezéstől
     fetchBookings();
   }, [isLoggedIn, token]);
-  
+
 
 
 
@@ -143,8 +143,11 @@ const WeeklyCalendar = () => {
 
     // Ellenőrizzük, hogy a kijelölt nap a mai nap előtt van-e
     const today = new Date(); // Mai nap másolása
-    if (currentDate < today.setHours(0, 0, 0, 0)) {
-      setAlertMessage('A mai nap előtti dátumokra nem lehet foglalást leadni.');
+    const tomorrow = new Date(today); // Készítünk egy új dátumot holnapra
+    tomorrow.setDate(today.getDate() + 1); // Holnapi nap beállítása
+
+    if (currentDate < tomorrow.setHours(0, 0, 0, 0)) {
+      setAlertMessage('Csak a következő naptól lehet foglalást leadni!');
       setIsAlertVisible(true);
       return;
     }
@@ -175,7 +178,7 @@ const WeeklyCalendar = () => {
       }
     }
   };
-  
+
 
 
 
@@ -226,8 +229,6 @@ const WeeklyCalendar = () => {
         });
 
         if (response.ok) {
-          const responseData = await response.json();
-          console.log('Foglalás sikeres:', responseData);
           setSuccessMessage('Foglalás sikeresen létrejött!');
 
           // Frissítjük a foglalásokat
@@ -242,7 +243,7 @@ const WeeklyCalendar = () => {
           setTimeout(() => {
             setIsModalVisible(false);
             setSuccessMessage('');
-          }, 1000);
+          }, 4000);
 
 
           setSelectedHours([]);
@@ -337,7 +338,7 @@ const WeeklyCalendar = () => {
       <LoginModal
         isVisible={isLoginModalVisible}
         onClose={() => setIsLoginModalVisible(false)}
-     
+
       />
 
       {/* Register Modal */}
@@ -420,8 +421,8 @@ const WeeklyCalendar = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
+            {!name && <p className="error">A foglaló név kötelező.</p>}
             <label htmlFor='bookingName'>
               Foglalási név:
             </label>
@@ -431,8 +432,8 @@ const WeeklyCalendar = () => {
               type="text"
               value={bookingName}
               onChange={(e) => setBookingName(e.target.value)}
-              required
             />
+            {!bookingName && <p className="error">A foglalási név kötelező.</p>}
             <div className="message-container">
               {successMessage && <p className="success-message">{successMessage}</p>}
             </div>

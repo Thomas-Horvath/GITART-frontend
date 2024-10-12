@@ -56,7 +56,7 @@ export default function Contact() {
             setFormStatus('Az üzenet sikeresen elküldve!');
             setTimeout(() => {
                 setFormStatus('');
-            }, 1200)
+            }, 5000)
             setFormData({ name: '', email: '', message: '' });
             setErrors({}); // Hibák törlése sikeres küldés után
         }

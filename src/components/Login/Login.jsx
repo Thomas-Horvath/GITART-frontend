@@ -28,13 +28,36 @@ const LoginModal = ({ onClose, isVisible }) => {
 
     const validateForm = () => {
         const newErrors = {};
-        if (!loginFormData.email) newErrors.email = 'Kötelező kitölteni.';
+        // email ellenőrzése
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Egyszerű email reguláris kifejezés
+        if (!loginFormData.email) {
+            newErrors.email = 'Kötelező kitölteni.';
+        } else if (!emailRegex.test(loginFormData.email)) {
+            newErrors.email = 'Kérjük, adjon meg egy érvényes email címet.';
+        }
         if (!loginFormData.password) newErrors.password = 'Kötelező kitölteni.';
         return newErrors;
     };
 
+
+
+
+
+
+
     const handleLogin = async (e) => {
         e.preventDefault();
+        const loginAttempts = parseInt(sessionStorage.getItem('loginAttempts'), 10) || 0;
+        if (loginAttempts >= 5) {
+          setFetchErrors({ login: 'Túl sok sikertelen bejelentkezési kísérlet. Próbálkozzon később!!' })
+            setTimeout(() => {
+                sessionStorage.setItem('loginAttempts', 0);
+            }, 60000)
+            return;
+        }
+
+
+
         const newErrors = validateForm();
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -47,17 +70,23 @@ const LoginModal = ({ onClose, isVisible }) => {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ EmailAddress: loginFormData.email, Password: loginFormData.password }),
+                body: JSON.stringify({ EmailAddress: loginFormData.email, Password: loginFormData.password , LoginAttempts: loginAttempts}),
             });
 
             if (response.ok) {
                 const { token } = await response.json();
+                sessionStorage.setItem('loginAttempts', 0);
                 sessionStorage.setItem('token', token);
                 setErrors({})
                 onClose(); //* Bezárja a modalt sikeres bejelentkezés után
             } else {
                 const { message } = await response.json();
                 setFetchErrors({ login: message || 'Hiba történt a bejelentkezés során.' });
+                // Ellenőrizd, hogy a hiba jelszóhibából származik-e
+                if (message.includes('jelszó')) {
+                    const updatedAttempts = loginAttempts + 1;
+                    sessionStorage.setItem('loginAttempts', updatedAttempts);
+                }
             }
         } catch (error) {
             setFetchErrors({ login: 'Nem sikerült kapcsolatba lépni a szerverrel.' });
@@ -78,13 +107,13 @@ const LoginModal = ({ onClose, isVisible }) => {
                         <label htmlFor="email">Email cím</label>
                         <input
                             id="email"
-                            type="email"
+                            type="text"
                             placeholder="Írd be a felhasználóneved"
                             value={loginFormData.email}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
                     </div>
+                    {errors.email && <p className="error">{errors.email}</p>}
                     <div className="input-group">
                         <label htmlFor="password">Jelszó:</label>
                         <input
@@ -97,8 +126,8 @@ const LoginModal = ({ onClose, isVisible }) => {
                         <span onClick={() => setPasswordVisible(!passwordVisible)}>
                             {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                         </span>
-                        {errors.password && <p className="error">{errors.password}</p>}
                     </div>
+                    {errors.password && <p className="error">{errors.password}</p>}
                     {fetchErrors.login && <p className="error">{fetchErrors.login}</p>}
                     <button className='btn' type="submit">Bejelentkezés</button>
                 </form>

@@ -11,6 +11,8 @@ $text-color-darker: #747474;
 $text-color: #a5a5a5;
 $bg-light: #827e7e;
 $bg-grey: #444;
+$succes: greenyellow;
+$error: red;
 
 
 
@@ -44,7 +46,7 @@ body {
     min-width: 350px;
     padding-top: 4rem;
     color: $text-color;
-   
+
 }
 
 a {
@@ -75,27 +77,40 @@ li {
     }
 }
 
-.btn {
+
+%btn-attributes {
     padding: .5rem 2rem;
-    background: $main-color;
-    color: $bg;
     font-weight: bold;
     font-size: .8rem;
     letter-spacing: .1rem;
     border: none;
     cursor: pointer;
-    box-shadow: 4px 4px 10px #222;
     width: fit-content;
     border-radius: 4px;
     display: block;
-
     transition: background-color .2s ease-in-out;
+}
+
+
+.btn {
+    @extend %btn-attributes;
+    background: $main-color;
+    color: $bg;
+    box-shadow: 4px 4px 10px #222;
 
     &:hover {
         background-color: darken-10($main-color);
     }
 }
 
+.delete-btn {
+    @extend %btn-attributes;
+    background: tomato;
+    color: $bg;
+    &:hover {
+        background: darken-10(tomato);
+    }
+}
 
 // közös  stílusok
 .heading {
@@ -130,12 +145,15 @@ h3 {
 }
 
 .error {
-    color: red;
+    color: $error;
     margin: .3rem;
+    letter-spacing: .1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .success {
-    color: darkgreen;
+    color: $succes;
 }
 
 
@@ -146,10 +164,16 @@ h3 {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content:center ;
+    justify-content: center;
 }
 
 
+
+//* touch sreen    - ne ugráljun a háttér ha ráklikkelünk  
+a,
+.hamb-icon {
+    -webkit-tap-highlight-color: transparent;
+}
 
 
 
