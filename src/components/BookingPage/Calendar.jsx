@@ -278,6 +278,7 @@ const WeeklyCalendar = () => {
       nextDate.setDate(prevDate.getDate() + 1);
       return nextDate;
     });
+    setSelectedHours([]);
   };
 
   const handlePrevDay = () => {
@@ -286,10 +287,12 @@ const WeeklyCalendar = () => {
       prevDateCopy.setDate(prevDate.getDate() - 1);
       return prevDateCopy;
     });
+    setSelectedHours([]);
   };
 
   const handleToday = () => {
-    setCurrentDate(new Date())
+    setCurrentDate(new Date());
+    setSelectedHours([]);
   };
 
   const getCurrentDateString = () => {
