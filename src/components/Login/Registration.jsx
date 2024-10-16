@@ -103,7 +103,7 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
 
             const phoneNumber = parsePhoneNumberFromString(formData.phone, 'HU');
             const formattedPhone = phoneNumber ? phoneNumber.formatInternational() : '';
-            const email = formData.email.toLocaleLowerCase();
+            const email = formData.email.toLowerCase();
 
             const requestData = {
                 Password: formData.password,

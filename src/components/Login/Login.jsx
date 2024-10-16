@@ -60,7 +60,7 @@ const LoginModal = ({ onClose, isVisible }) => {
         const loginAttempts = parseInt(sessionStorage.getItem('loginAttempts'), 10) || 0;
 
         const emailData = {
-            emailAddress: loginFormData.email,
+            emailAddress: loginFormData.email.toLowerCase(),
             lastName: "",
             firstName: "",
             date: "",
@@ -99,7 +99,7 @@ const LoginModal = ({ onClose, isVisible }) => {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ EmailAddress: loginFormData.email, Password: loginFormData.password, LoginAttempts: loginAttempts }),
+                body: JSON.stringify({ EmailAddress: loginFormData.email.toLowerCase(), Password: loginFormData.password, LoginAttempts: loginAttempts }),
             });
 
             if (response.ok) {
