@@ -182,6 +182,10 @@
     position: relative;
     text-align: center;
 
+    h2 {
+      text-align: center;
+    }
+
     & .btn-group {
       display: flex;
       gap: 1rem;
