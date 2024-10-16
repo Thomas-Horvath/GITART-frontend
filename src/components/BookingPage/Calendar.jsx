@@ -6,6 +6,9 @@ import { IoMdClose } from "react-icons/io";
 import { FaInfoCircle } from "react-icons/fa";
 import LoginModal from '../Login/Login';
 
+import sendEmailAlerts from '../../utils/emailService';
+import getFormattedDate from '../../utils/getFormattedDate';
+
 import RegisterModal from '../Login/Registration';
 import InfoModal from '../Login/Info'; // Az InfoModal
 
@@ -34,10 +37,6 @@ const WeeklyCalendar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!token); // Kiindulásként a token létezésétől függően állítja be.
 
 
-
-  const getFormattedDate = (date) => {
-    return date.toISOString().split('T')[0]; // Csak a dátum rész, pl. 2024-09-28
-  };
 
 
 
@@ -217,6 +216,17 @@ const WeeklyCalendar = () => {
           BookingName: bookingName,
         };
 
+        // emailben küldött aadatok
+        const emailData = {
+          emailAddress: `${profile.EmailAddress}`,
+          lastName: `${profile.LastName}`,
+          firstName: `${profile.FirstName}`,
+          date: formattedDate,
+          room: selectedHours[0].room,
+          startTime: `${Math.min(...selectedHours.map(h => h.hour))}`,
+          endTime: `${Math.max(...selectedHours.map(h => h.hour)) + 1}`
+        }
+
 
 
         const response = await fetch(`${process.env.REACT_APP_API_URL}/new-booking`, {
@@ -230,6 +240,7 @@ const WeeklyCalendar = () => {
 
         if (response.ok) {
           setSuccessMessage('Foglalás sikeresen létrejött!');
+          sendEmailAlerts(emailData, "booking_success", "Sikeres foglalás")
 
           // Frissítjük a foglalásokat
           selectedHours.forEach(bookingTime => {

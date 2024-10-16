@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import BackBtn from './BackBtn';
 import AlertModal from '../components/BookingPage/AlertModal';
+import sendEmailAlerts from '../utils/emailService';
+import getFormattedDate from '../utils/getFormattedDate';
 
 const MyBooking = () => {
   const [bookings, setBookings] = useState([]);
+  const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isModalVisible, setModalVisible] = useState(false); // Modal láthatóság állapota
   const [selectedBookingId, setSelectedBookingId] = useState(null);
   const [modalMessage, setModalMessage] = useState(''); // Modal üzenet állapota
   const [isDeleting, setIsDeleting] = useState(false); // Törlés folyamatban
-  const [isGreen, setIsGreen] = useState(false); 
+  const [isGreen, setIsGreen] = useState(false);
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -23,32 +26,42 @@ const MyBooking = () => {
       }
 
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/own-bookings`, {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
+        const [bookingsResponse, profileResponse] = await Promise.all([
+          fetch(`${process.env.REACT_APP_API_URL}/own-bookings`, {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          }),
+          fetch(`${process.env.REACT_APP_API_URL}/profile`, {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          }),
+        ]);
 
-        });
-
-
-        if (!response.ok) {
-          const errorData = await response.json();
+        // Ellenőrizzük a bookings válasz státuszát
+        if (!bookingsResponse.ok) {
+          const errorData = await bookingsResponse.json();
           if (errorData.message === 'Nincs foglalás a megadott felhasználóhoz.') {
-            setBookings([]);  // Nincs foglalás, állítsuk be az üres tömböt
+            setBookings([]);
           } else {
             throw new Error('Hiba a foglalások lekérdezésekor.');
           }
         } else {
-          const data = await response.json();
+          const bookingsData = await bookingsResponse.json();
+          setBookings(bookingsData || []); // Biztosítsuk, hogy üres tömböt állítunk be, ha nincs foglalás
+        }
 
-          // Ellenőrizzük, hogy a data tömb típusú-e
-          if (Array.isArray(data)) {
-            setBookings(data);
-          } else {
-            setError('A foglalások adatainak lekérdezésekor hiba történt.');
-          }
+        // Ellenőrizzük a profil válasz státuszát
+        if (!profileResponse.ok) {
+          throw new Error('Hiba a profil adatainak lekérdezésekor.');
+        } else {
+          const profileData = await profileResponse.json();
+          setUser(profileData || {}); // Biztosítsuk, hogy üres objektumot állítunk be, ha nincs felhasználó
         }
       } catch (err) {
         setError(err.message);
@@ -67,6 +80,24 @@ const MyBooking = () => {
   const deleteBooking = async (Id) => {
     const token = sessionStorage.getItem('token');
 
+    const oneBooking = bookings.find(booking => booking._id === Id)
+    const bookingdate = new Date(oneBooking.BookingDate);
+    const date = getFormattedDate(bookingdate)
+
+
+
+
+    const emailData = {
+      emailAddress: `${user.EmailAddress}`,
+      lastName: `${user.LastName}`,
+      firstName: `${user.FirstName}`,
+      date: date,
+      room: `${oneBooking.Room}`,
+      startTime: `${Math.min(...oneBooking.Hours)}`,
+      endTime: `${Math.max(...oneBooking.Hours) + 1}`
+    }
+  
+
     if (!token) {
       setError('Nincs bejelentkezve.');
       return;
@@ -83,10 +114,13 @@ const MyBooking = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        setError(errorData.message || 'Hiba a foglalás törlése során.');
+        setModalMessage(errorData.message || 'Hiba a foglalás törlése során.');
       } else {
         // A törlés sikeres, frissítsük a foglalások listáját
         setBookings((prevBookings) => prevBookings.filter((booking) => booking._id !== Id));
+
+        // E-mail küldés a törlésre
+        sendEmailAlerts(emailData, "booking_cancellation", "Foglalása törlölve")
       }
     } catch (err) {
       setError(err.message);
@@ -101,7 +135,7 @@ const MyBooking = () => {
       today.setHours(0, 0, 0, 0);
       today.setDate(today.getDate() + 1);
 
-   
+
 
       if (bookingDate > today) {
         setSelectedBookingId(Id);
@@ -127,12 +161,17 @@ const MyBooking = () => {
       setTimeout(() => {
         setModalVisible(false);
         setIsDeleting(false);
+        setIsGreen(false);
         setSelectedBookingId(null);
       }, 4000);
 
     }
   };
 
+  const handleCloseAlert = () => {
+    setIsGreen(false);
+    setModalVisible(false);
+  }
 
 
   if (loading) return <div className='loading'>Töltés...</div>;
@@ -181,9 +220,9 @@ const MyBooking = () => {
       <AlertModal
         message={modalMessage} // Dinamikus üzenet átadása
         isVisible={isModalVisible}
-        onClose={() => setModalVisible(false)}
-        onConfirm={handleModalConfirm} 
-        confirmButtonDisabled={isDeleting} 
+        onClose={handleCloseAlert}
+        onConfirm={handleModalConfirm}
+        confirmButtonDisabled={isDeleting}
         isGreen={isGreen}
       />
 

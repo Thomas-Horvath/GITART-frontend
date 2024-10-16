@@ -3,6 +3,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import BodyScrollHidden from '../BodyScrollHidden';
 
+import sendEmailAlerts from '../../utils/emailService';
+
+
 const LoginModal = ({ onClose, isVisible }) => {
 
     BodyScrollHidden(isVisible)
@@ -11,6 +14,9 @@ const LoginModal = ({ onClose, isVisible }) => {
     const [loginFormData, setLoginFormData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
     const [fetchErrors, setFetchErrors] = useState({});
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [loginAttemptError, setLoginAttemptError] = useState('');
+
 
 
     useEffect(() => {
@@ -39,8 +45,12 @@ const LoginModal = ({ onClose, isVisible }) => {
         return newErrors;
     };
 
-
-
+    const handleClose = () => {
+        setLoginFormData({ email: '', password: '' }); // Form tartalmának törlése
+        setErrors({});
+        setFetchErrors({});
+        onClose();
+    };
 
 
 
@@ -48,11 +58,30 @@ const LoginModal = ({ onClose, isVisible }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const loginAttempts = parseInt(sessionStorage.getItem('loginAttempts'), 10) || 0;
+
+        const emailData = {
+            emailAddress: loginFormData.email,
+            lastName: "",
+            firstName: "",
+            date: "",
+            room: "",
+            startTime: "",
+            endTime: ""
+        }
+
+
+
         if (loginAttempts >= 5) {
-          setFetchErrors({ login: 'Túl sok sikertelen bejelentkezési kísérlet. Próbálkozzon később!!' })
+            setLoginAttemptError('Túl sok sikertelen bejelentkezési kísérlet. Próbálkozzon később!!');
+            setErrors({}); 
+            sendEmailAlerts(emailData, "login_attempt_warning", "Figyelmeztetés")
+            // Gomb letiltása
+            setIsButtonDisabled(true);
             setTimeout(() => {
                 sessionStorage.setItem('loginAttempts', 0);
-            }, 60000)
+                setLoginAttemptError('');
+                setIsButtonDisabled(false); // Gomb újra engedélyezése 5 perc után
+            }, 300000) // 5 perc
             return;
         }
 
@@ -70,7 +99,7 @@ const LoginModal = ({ onClose, isVisible }) => {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ EmailAddress: loginFormData.email, Password: loginFormData.password , LoginAttempts: loginAttempts}),
+                body: JSON.stringify({ EmailAddress: loginFormData.email, Password: loginFormData.password, LoginAttempts: loginAttempts }),
             });
 
             if (response.ok) {
@@ -96,7 +125,7 @@ const LoginModal = ({ onClose, isVisible }) => {
     return (
         <div className={`login-modal ${isVisible ? 'show' : ''}`}>
             <div className="login-modal-content">
-                <p className="close" onClick={onClose}>
+                <p className="close" onClick={handleClose}>
                     <IoMdClose />
                 </p>
 
@@ -127,9 +156,14 @@ const LoginModal = ({ onClose, isVisible }) => {
                             {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                         </span>
                     </div>
+
+                    <p className="error">
+                        {loginAttemptError ? loginAttemptError : (fetchErrors.login || '')}
+                    </p>
+
                     {errors.password && <p className="error">{errors.password}</p>}
-                    {fetchErrors.login && <p className="error">{fetchErrors.login}</p>}
-                    <button className='btn' type="submit">Bejelentkezés</button>
+
+                    <button className='btn' type="submit" disabled={isButtonDisabled}>Bejelentkezés</button>
                 </form>
             </div>
         </div>

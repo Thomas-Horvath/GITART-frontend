@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import sendEmailAlerts from '../../utils/emailService';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
@@ -55,6 +56,7 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
         const newErrors = {};
         if (!formData.firstName) newErrors.firstName = 'Kötelező kitölteni.';
         if (!formData.lastName) newErrors.lastName = 'Kötelező kitölteni.';
+        if (!formData.bookingName) newErrors.bookingName = 'Kötelező kitölteni.';
 
 
         // telefonszám ellenőrzése
@@ -89,6 +91,8 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
 
 
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newErrors = validateForm();
@@ -112,6 +116,17 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
             };
 
 
+            // emailben küldött aadatok
+            const emailData = {
+                emailAddress: email,
+                lastName: formData.lastName,
+                firstName: formData.firstName,
+                date: "",
+                room: "",
+                startTime: "",
+                endTime: ""
+            };
+
             try {
                 const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
                     method: 'POST',
@@ -121,6 +136,7 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
 
                 if (response.ok) {
                     setRegistrationSuccess(true);
+                    sendEmailAlerts(emailData, "registration_success", "Sikeres regisztráció");
                     setServerErrors({})
                     setErrors({});
                 } else {
@@ -164,17 +180,7 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
 
                 <form onSubmit={handleSubmit}>
                     <h2>Regisztráció</h2>
-                    <div className="input-group">
-                        <label htmlFor="firstName">Keresztnév:</label>
-                        <input
-                            id="firstName"
-                            type="text"
-                            placeholder="Írd be a keresztneved"
-                            value={formData.firstName}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    {errors.firstName && <p className="error">{errors.firstName}</p>}
+
                     <div className="input-group">
                         <label htmlFor="lastName">Vezetéknév:</label>
                         <input
@@ -186,6 +192,17 @@ const RegisterModal = ({ onClose, isVisible, setIsRegisterModalVisible }) => {
                         />
                     </div>
                     {errors.lastName && <p className="error">{errors.lastName}</p>}
+                    <div className="input-group">
+                        <label htmlFor="firstName">Keresztnév:</label>
+                        <input
+                            id="firstName"
+                            type="text"
+                            placeholder="Írd be a keresztneved"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    {errors.firstName && <p className="error">{errors.firstName}</p>}
                     <div className="input-group">
                         <label htmlFor="bookingName">Foglalási név:</label>
                         <input
